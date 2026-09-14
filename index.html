@@ -1,0 +1,1728 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IUSTUS | Assistência e Defesa Jurídica por Assinatura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                950: "#070c18",
+                900: "#0d162a",
+                850: "#111e38",
+                800: "#172748",
+                700: "#1f345e",
+                600: "#2c477d",
+                gold: "#e5b869",
+                goldHover: "#d4a359",
+                goldDark: "#9f7229",
+                goldLight: "#f6e4be",
+              },
+            },
+            fontFamily: {
+              serif: ["Cinzel", "serif"],
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            boxShadow: {
+              "glow-gold": "0 0 15px rgba(229, 184, 105, 0.15)",
+              "glow-gold-hover": "0 0 20px rgba(229, 184, 105, 0.3)",
+              "premium-inner": "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #070c18;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1f345e;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #e5b869;
+      }
+      .gold-gradient-text {
+        background: linear-gradient(
+          135deg,
+          #fceecb 0%,
+          #e5b869 50%,
+          #ba8a38 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .print-preview-paper {
+        background: #ffffff;
+        color: #1a202c;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        min-height: 520px;
+      } /* Animações suaves de entrada */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    </style>
+  </head>
+  <body
+    class="h-full bg-brand-950 text-slate-100 font-sans flex flex-col selection:bg-brand-gold selection:text-brand-950 overflow-x-hidden"
+  >
+    <!-- AUTH VIEW (Premium Radial Background) -->
+    <div
+      id="view-auth"
+      class="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-850 via-brand-950 to-[#03060c] z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-brand-900/80 backdrop-blur-xl border border-brand-800/60 rounded-3xl w-full max-w-md p-8 shadow-2xl flex flex-col items-center animate-fade-in shadow-glow-gold relative overflow-hidden"
+      >
+        <!-- Subtle shine effect on top edge -->
+        <div
+          class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"
+        ></div>
+        <!-- Logo -->
+        <div
+          class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-800 to-brand-950 border border-brand-gold/30 flex items-center justify-center p-3 shadow-xl mb-5 relative group"
+        >
+          <div
+            class="absolute inset-0 bg-brand-gold/10 rounded-2xl blur-xl group-hover:bg-brand-gold/20 transition-all duration-500"
+          ></div>
+          <svg
+            viewBox="0 0 100 100"
+            class="w-full h-full relative z-10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="25" y="82" width="50" height="7" rx="2" fill="#2c477d" />
+            <rect x="29" y="75" width="42" height="7" rx="1.5" fill="#1f345e" />
+            <rect x="35" y="28" width="8" height="47" rx="1" fill="#2c477d" />
+            <rect x="46" y="28" width="8" height="47" rx="1" fill="#3a5a9c" />
+            <rect x="57" y="28" width="8" height="47" rx="1" fill="#2c477d" />
+            <path d="M25 24L75 24L70 31L30 31Z" fill="#1f345e" />
+            <path
+              d="M50 12V32"
+              stroke="#e5b869"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+            <path
+              d="M30 20H70"
+              stroke="#e5b869"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M30 20L23 29M30 20L37 29"
+              stroke="#e5b869"
+              stroke-width="1.5"
+            />
+            <path d="M22 29C22 35 38 35 38 29Z" fill="#e5b869" />
+            <path
+              d="M70 20L63 29M70 20L77 29"
+              stroke="#e5b869"
+              stroke-width="1.5"
+            />
+            <path d="M62 29C62 35 78 35 78 29Z" fill="#e5b869" />
+          </svg>
+        </div>
+        <h1
+          class="font-serif text-3xl font-extrabold gold-gradient-text mb-1 tracking-wide"
+        >
+          IUSTUS
+        </h1>
+        <p
+          class="text-xs text-slate-400 mb-8 text-center uppercase tracking-widest font-semibold"
+        >
+          Assistência Jurídica
+        </p>
+        <form id="auth-form" class="w-full space-y-4">
+          <div id="auth-name-field" class="hidden">
+            <label class="block text-xs font-semibold text-slate-300 mb-1"
+              >Nome Completo</label
+            >
+            <input
+              type="text"
+              id="auth-name"
+              class="w-full bg-brand-950/50 border border-brand-800 rounded-xl p-3 text-white text-sm focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 focus:outline-none transition-all shadow-inner"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              id="auth-email"
+              required
+              class="w-full bg-brand-950/50 border border-brand-800 rounded-xl p-3 text-white text-sm focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 focus:outline-none transition-all shadow-inner"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1"
+              >Senha</label
+            >
+            <input
+              type="password"
+              id="auth-password"
+              required
+              minlength="6"
+              class="w-full bg-brand-950/50 border border-brand-800 rounded-xl p-3 text-white text-sm focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 focus:outline-none transition-all shadow-inner"
+            />
+          </div>
+          <button
+            type="submit"
+            id="auth-submit-btn"
+            class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-[#d4a359] hover:from-[#d4a359] hover:to-[#ba8a38] text-brand-950 font-bold rounded-xl text-sm transition-all shadow-glow-gold hover:shadow-glow-gold-hover mt-4 flex justify-center items-center"
+          >
+            <span>Acessar Plataforma</span>
+          </button>
+        </form>
+        <div class="w-full flex items-center my-6 opacity-70">
+          <div class="flex-1 border-t border-brand-800"></div>
+          <span
+            class="px-3 text-[10px] uppercase font-bold text-slate-500 tracking-wider"
+            >Ou continue com</span
+          >
+          <div class="flex-1 border-t border-brand-800"></div>
+        </div>
+        <button
+          type="button"
+          id="auth-google-btn"
+          class="w-full py-3 bg-white/5 hover:bg-white/10 text-white border border-brand-800 rounded-xl text-sm font-semibold transition-all flex items-center justify-center space-x-3 group"
+        >
+          <svg
+            class="w-5 h-5 group-hover:scale-110 transition-transform"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#4285F4"
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+            />
+            <path
+              fill="#34A853"
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+            />
+            <path
+              fill="#FBBC05"
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+            />
+            <path
+              fill="#EA4335"
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+            />
+          </svg>
+          <span>Entrar com Google</span>
+        </button>
+        <div class="mt-6 text-xs text-slate-400">
+          <span id="auth-toggle-text">Não tem uma conta?</span>
+          <button
+            type="button"
+            id="auth-toggle-btn"
+            class="text-brand-gold font-bold hover:text-brand-goldLight transition-colors ml-1"
+          >
+            Criar conta grátis
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- APP CONTENT WRAPPER -->
+    <div id="app-content-wrapper" class="flex-1 flex flex-col hidden h-full">
+      <!-- GLASSMORPHISM HEADER -->
+      <header
+        class="bg-brand-950/80 backdrop-blur-md border-b border-brand-800/50 sticky top-0 z-40 shadow-sm"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-wrap sm:flex-nowrap items-center justify-between min-h-[4.5rem] py-2 gap-3"
+          >
+            <!-- Logo & Brand Identity -->
+            <div
+              class="flex items-center space-x-3 cursor-pointer shrink-0 group"
+              onclick="app.setRoute('home')"
+            >
+              <div
+                class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-800 to-brand-950 border border-brand-gold/30 flex items-center justify-center p-1.5 shadow-lg group-hover:border-brand-gold/60 transition-colors"
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  class="w-full h-full"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="25"
+                    y="82"
+                    width="50"
+                    height="7"
+                    rx="2"
+                    fill="#2c477d"
+                  />
+                  <rect
+                    x="29"
+                    y="75"
+                    width="42"
+                    height="7"
+                    rx="1.5"
+                    fill="#1f345e"
+                  />
+                  <rect
+                    x="35"
+                    y="28"
+                    width="8"
+                    height="47"
+                    rx="1"
+                    fill="#2c477d"
+                  />
+                  <rect
+                    x="46"
+                    y="28"
+                    width="8"
+                    height="47"
+                    rx="1"
+                    fill="#3a5a9c"
+                  />
+                  <rect
+                    x="57"
+                    y="28"
+                    width="8"
+                    height="47"
+                    rx="1"
+                    fill="#2c477d"
+                  />
+                  <path d="M25 24L75 24L70 31L30 31Z" fill="#1f345e" />
+                  <path
+                    d="M50 12V32"
+                    stroke="#e5b869"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M30 20H70"
+                    stroke="#e5b869"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M30 20L23 29M30 20L37 29"
+                    stroke="#e5b869"
+                    stroke-width="1.5"
+                  />
+                  <path d="M22 29C22 35 38 35 38 29Z" fill="#e5b869" />
+                  <path
+                    d="M70 20L63 29M70 20L77 29"
+                    stroke="#e5b869"
+                    stroke-width="1.5"
+                  />
+                  <path d="M62 29C62 35 78 35 78 29Z" fill="#e5b869" />
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <div
+                  class="font-serif tracking-widest text-xl font-bold gold-gradient-text leading-none truncate"
+                >
+                  IUSTUS
+                </div>
+                <div
+                  class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase truncate hidden sm:block mt-0.5"
+                >
+                  Defesa Jurídica
+                </div>
+              </div>
+            </div>
+            <!-- Role Simulator Badge (Premium segmented control style) -->
+            <div
+              class="hidden md:flex items-center p-1 bg-brand-950 border border-brand-800/80 rounded-lg shadow-inner shrink-0"
+            >
+              <span
+                class="text-[10px] text-slate-500 px-2 font-semibold uppercase tracking-wider hidden lg:inline"
+                >Modo:</span
+              >
+              <button
+                onclick="app.switchRole('client')"
+                id="role-btn-client"
+                class="px-3 py-1.5 text-xs rounded-md font-bold transition-all bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow-md"
+              >
+                <i class="fa-solid fa-user mr-1.5"></i> Cliente
+              </button>
+              <button
+                onclick="app.switchRole('lawyer')"
+                id="role-btn-lawyer"
+                class="px-3 py-1.5 text-xs rounded-md font-medium transition-all text-slate-400 hover:text-white"
+              >
+                <i class="fa-solid fa-scale-balanced mr-1.5"></i> Advogado
+              </button>
+              <button
+                onclick="app.switchRole('admin')"
+                id="role-btn-admin"
+                class="px-3 py-1.5 text-xs rounded-md font-medium transition-all text-slate-400 hover:text-white"
+              >
+                <i class="fa-solid fa-shield-halved mr-1.5"></i> Admin
+              </button>
+            </div>
+            <!-- Right navigation & User Status -->
+            <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+              <!-- Subscription status pill -->
+              <div
+                id="nav-sub-pill"
+                class="hidden md:flex items-center text-xs px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 font-medium"
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2 animate-pulse"
+                ></span>
+                <span id="nav-sub-text">Plano Anual</span>
+              </div>
+              <!-- Notifications bell -->
+              <button
+                onclick="app.toggleNotificationModal()"
+                class="relative p-2 text-slate-400 hover:text-brand-gold transition-colors"
+              >
+                <i class="fa-regular fa-bell text-lg"></i>
+                <span
+                  id="notif-badge"
+                  class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-brand-950"
+                ></span>
+              </button>
+              <!-- User Avatar & dropdown -->
+              <div
+                class="relative flex items-center border-l border-brand-800/60 pl-2 sm:pl-4"
+              >
+                <button
+                  onclick="app.toggleUserMenu()"
+                  class="flex items-center space-x-2.5 focus:outline-none group"
+                >
+                  <div
+                    id="user-avatar"
+                    class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-700 to-brand-850 border border-brand-gold/40 flex items-center justify-center font-bold text-xs text-brand-goldLight uppercase group-hover:border-brand-gold shadow-md transition-all"
+                  >
+                    US
+                  </div>
+                  <div
+                    class="hidden sm:flex flex-col items-start text-left max-w-[100px] md:max-w-[140px]"
+                  >
+                    <div
+                      id="user-name-display"
+                      class="font-bold text-sm text-slate-200 group-hover:text-white transition-colors truncate w-full"
+                    >
+                      Carregando...
+                    </div>
+                    <div
+                      id="user-role-label"
+                      class="text-[10px] font-medium text-brand-gold/80 uppercase tracking-wide truncate w-full"
+                    >
+                      Cliente Assinante
+                    </div>
+                  </div>
+                  <i
+                    class="fa-solid fa-chevron-down text-[10px] text-slate-500 group-hover:text-brand-gold ml-1"
+                  ></i>
+                </button>
+                <!-- Dropdown Menu -->
+                <div
+                  id="user-dropdown-menu"
+                  class="absolute top-full right-0 mt-3 w-56 bg-brand-900/95 backdrop-blur-xl border border-brand-800 rounded-xl shadow-2xl hidden flex-col overflow-hidden z-50 transform origin-top-right transition-all"
+                >
+                  <div class="p-3 border-b border-brand-800/50 bg-brand-950/50">
+                    <p class="text-xs text-slate-400">Conectado como</p>
+                    <p
+                      class="text-sm font-bold text-white truncate"
+                      id="dropdown-email"
+                    >
+                      user@iustus.com
+                    </p>
+                  </div>
+                  <button
+                    onclick="app.setRoute('subscription')"
+                    class="w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-brand-800 hover:text-white flex items-center space-x-3 transition-colors"
+                  >
+                    <i
+                      class="fa-solid fa-file-invoice-dollar w-5 text-center text-brand-gold"
+                    ></i>
+                    <span>Assinatura & Faturas</span>
+                  </button>
+                  <button
+                    onclick="app.logout()"
+                    class="w-full text-left px-4 py-3 text-sm font-medium text-rose-400 hover:bg-brand-800 hover:text-rose-300 flex items-center space-x-3 transition-colors border-t border-brand-800/50"
+                  >
+                    <i
+                      class="fa-solid fa-right-from-bracket w-5 text-center"
+                    ></i>
+                    <span>Sair da Conta</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- VIEW 1: CLIENT DASHBOARD -->
+      <section
+        id="view-client"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fade-in"
+      >
+        <!-- Quick Metrics Summary (Premium Cards) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="bg-gradient-to-br from-brand-900 to-brand-950 border border-brand-800/60 p-5 rounded-2xl shadow-lg hover:border-brand-700 transition-colors relative overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i class="fa-solid fa-folder-open text-4xl text-white"></i>
+            </div>
+            <div
+              class="text-[11px] text-slate-400 font-bold uppercase tracking-wider"
+            >
+              Casos Ativos
+            </div>
+            <div
+              class="text-3xl font-bold text-white mt-2 font-serif"
+              id="stat-active-cases"
+            >
+              3
+            </div>
+            <div
+              class="text-[10px] font-semibold text-emerald-400 mt-2 bg-emerald-950/30 inline-block px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-clock mr-1"></i> Em andamento
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-brand-900 to-brand-950 border border-brand-800/60 p-5 rounded-2xl shadow-lg hover:border-brand-gold/30 transition-colors relative overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i
+                class="fa-solid fa-file-signature text-4xl text-brand-gold"
+              ></i>
+            </div>
+            <div
+              class="text-[11px] text-slate-400 font-bold uppercase tracking-wider"
+            >
+              Defesas Prontas
+            </div>
+            <div
+              class="text-3xl font-bold text-brand-gold mt-2 font-serif"
+              id="stat-ready-cases"
+            >
+              1
+            </div>
+            <div
+              class="text-[10px] font-semibold text-amber-400 mt-2 bg-amber-950/30 inline-block px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-eye mr-1"></i> Aguardando revisão
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-brand-900 to-brand-950 border border-brand-800/60 p-5 rounded-2xl shadow-lg hover:border-rose-900/50 transition-colors relative overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i
+                class="fa-solid fa-triangle-exclamation text-4xl text-rose-400"
+              ></i>
+            </div>
+            <div
+              class="text-[11px] text-slate-400 font-bold uppercase tracking-wider"
+            >
+              Atenção (Prazos)
+            </div>
+            <div
+              class="text-3xl font-bold text-rose-400 mt-2 font-serif"
+              id="stat-urgent-cases"
+            >
+              1
+            </div>
+            <div
+              class="text-[10px] font-semibold text-rose-300 mt-2 bg-rose-950/30 inline-block px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-calendar-xmark mr-1"></i> Vence em breve
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-brand-900 to-brand-950 border border-brand-800/60 p-5 rounded-2xl shadow-lg hover:border-sky-800/50 transition-colors relative overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i class="fa-solid fa-check-double text-4xl text-sky-400"></i>
+            </div>
+            <div
+              class="text-[11px] text-slate-400 font-bold uppercase tracking-wider"
+            >
+              Protocolados
+            </div>
+            <div
+              class="text-3xl font-bold text-sky-400 mt-2 font-serif"
+              id="stat-filed-cases"
+            >
+              2
+            </div>
+            <div
+              class="text-[10px] font-semibold text-sky-300 mt-2 bg-sky-950/30 inline-block px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-stamp mr-1"></i> Protegidos
+            </div>
+          </div>
+        </div>
+        <!-- Cases Section -->
+        <div class="space-y-5">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-brand-800/50 pb-4"
+          >
+            <div>
+              <h2
+                class="text-2xl font-bold text-white font-serif flex items-center gap-2"
+              >
+                Meus Processos
+              </h2>
+              <p class="text-xs text-slate-400 mt-1">
+                Gerencie suas multas, notificações e ações ativas.
+              </p>
+            </div>
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center gap-3"
+            >
+              <!-- Filter pills -->
+              <div
+                class="flex items-center space-x-2 overflow-x-auto pb-1 sm:pb-0 text-xs bg-brand-950 p-1 rounded-lg border border-brand-800/60 shadow-inner"
+              >
+                <button
+                  onclick="app.filterCases('all')"
+                  class="case-filter-btn px-3 py-1.5 rounded-md bg-brand-800 text-brand-gold font-bold whitespace-nowrap shadow-sm"
+                  data-filter="all"
+                >
+                  Todos
+                </button>
+                <button
+                  onclick="app.filterCases('multa')"
+                  class="case-filter-btn px-3 py-1.5 rounded-md text-slate-400 hover:text-white whitespace-nowrap transition-colors"
+                  data-filter="multa"
+                >
+                  Trânsito
+                </button>
+                <button
+                  onclick="app.filterCases('consumo')"
+                  class="case-filter-btn px-3 py-1.5 rounded-md text-slate-400 hover:text-white whitespace-nowrap transition-colors"
+                  data-filter="consumo"
+                >
+                  Consumo
+                </button>
+                <button
+                  onclick="app.filterCases('processo')"
+                  class="case-filter-btn px-3 py-1.5 rounded-md text-slate-400 hover:text-white whitespace-nowrap transition-colors"
+                  data-filter="processo"
+                >
+                  Judiciais
+                </button>
+              </div>
+              <!-- Botão de Nova Defesa (Destaque Premium) -->
+              <button
+                onclick="app.openNewCaseModal()"
+                class="px-5 py-2.5 bg-gradient-to-r from-brand-gold to-[#d4a359] hover:from-[#d4a359] hover:to-[#ba8a38] text-brand-950 font-bold rounded-lg text-sm shadow-glow-gold hover:shadow-glow-gold-hover transition-all flex items-center shrink-0"
+              >
+                <i class="fa-solid fa-plus mr-2"></i> Nova Solicitação
+              </button>
+            </div>
+          </div>
+          <!-- Cases Cards List -->
+          <div
+            id="cases-container"
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+          >
+            <!-- Populated via Javascript -->
+          </div>
+        </div>
+      </section>
+      <!-- VIEW 2: LAWYER PORTAL (ÁREA DO ADVOGADO CREDENCIADO) -->
+      <section
+        id="view-lawyer"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 hidden animate-fade-in"
+      >
+        <!-- Lawyer Header (Premium Banner) -->
+        <div
+          class="bg-gradient-to-r from-brand-900 to-brand-950 border border-brand-800/60 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-5 shadow-lg relative overflow-hidden"
+        >
+          <div
+            class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-brand-800/20 to-transparent pointer-events-none"
+          ></div>
+          <div class="flex items-center space-x-4 relative z-10">
+            <div
+              class="w-14 h-14 rounded-xl bg-brand-950 border border-brand-gold/40 flex items-center justify-center text-brand-gold text-2xl shadow-inner"
+            >
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h2 class="text-2xl font-bold text-white font-serif">
+                  Workspace Jurídico
+                </h2>
+                <span
+                  class="px-2.5 py-0.5 bg-emerald-950/50 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold rounded uppercase tracking-wider"
+                  >OAB Verificada</span
+                >
+              </div>
+              <p class="text-xs text-slate-300 font-medium">
+                Dra. Beatriz Albuquerque — OAB/SP 412.980 | Trânsito &
+                Consumidor
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Lawyer Tabs -->
+        <div class="flex space-x-2 border-b border-brand-800/60 pb-3">
+          <button
+            onclick="app.setLawyerTab('assigned')"
+            id="tab-lawyer-assigned"
+            class="px-5 py-2.5 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow-md"
+          >
+            Minha Carteira de Casos (<span id="lawyer-assigned-count">2</span>)
+          </button>
+          <button
+            onclick="app.setLawyerTab('inbox')"
+            id="tab-lawyer-inbox"
+            class="px-5 py-2.5 text-xs font-bold rounded-xl bg-brand-900 border border-brand-800 text-slate-300 hover:text-white hover:bg-brand-800 transition-colors"
+          >
+            Fila de Distribuição (<span id="lawyer-inbox-count">1</span>)
+          </button>
+        </div>
+        <!-- Lawyer Cases List -->
+        <div id="lawyer-cases-list" class="space-y-4">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+      <!-- VIEW 3: ADMIN PANEL -->
+      <section
+        id="view-admin"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 hidden animate-fade-in"
+      >
+        <div
+          class="bg-gradient-to-r from-brand-900 to-brand-950 border border-brand-800/60 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg"
+        >
+          <div>
+            <h2 class="text-2xl font-bold text-white font-serif">
+              Centro de Comando IUSTUS
+            </h2>
+            <p class="text-sm text-slate-400 mt-1">
+              Supervisão global, regras de IA e volumetria do sistema.
+            </p>
+          </div>
+          <button
+            onclick="app.showAdminConfigModal()"
+            class="px-4 py-2 bg-brand-850 hover:bg-brand-800 text-brand-gold border border-brand-700 rounded-xl text-xs font-bold shadow transition-colors flex items-center space-x-2"
+          >
+            <i class="fa-solid fa-sliders"></i>
+            <span>Motor de Regras & IA</span>
+          </button>
+        </div>
+        <!-- Admin Overview KPI -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="bg-brand-900 border border-brand-800/60 p-5 rounded-xl shadow-md"
+          >
+            <div
+              class="text-[11px] font-bold text-slate-400 uppercase tracking-wider"
+            >
+              Assinantes Ativos
+            </div>
+            <div class="text-3xl font-bold text-white mt-1 font-serif">
+              1.428
+            </div>
+            <div class="text-xs font-semibold text-emerald-400 mt-2">
+              <i class="fa-solid fa-arrow-trend-up mr-1"></i> +12% no mês
+            </div>
+          </div>
+          <div
+            class="bg-brand-900 border border-brand-800/60 p-5 rounded-xl shadow-md"
+          >
+            <div
+              class="text-[11px] font-bold text-slate-400 uppercase tracking-wider"
+            >
+              Aguardando Advogado
+            </div>
+            <div
+              class="text-3xl font-bold text-amber-400 mt-1 font-serif"
+              id="admin-unassigned-stat"
+            >
+              1
+            </div>
+            <div class="text-xs font-semibold text-slate-400 mt-2">
+              Na fila de distribuição
+            </div>
+          </div>
+          <div
+            class="bg-brand-900 border border-brand-800/60 p-5 rounded-xl shadow-md"
+          >
+            <div
+              class="text-[11px] font-bold text-slate-400 uppercase tracking-wider"
+            >
+              Corpo Jurídico
+            </div>
+            <div class="text-3xl font-bold text-sky-400 mt-1 font-serif">8</div>
+            <div class="text-xs font-semibold text-slate-400 mt-2">
+              Média 4.8 casos/advogado
+            </div>
+          </div>
+          <div
+            class="bg-brand-900 border border-brand-800/60 p-5 rounded-xl shadow-md"
+          >
+            <div
+              class="text-[11px] font-bold text-slate-400 uppercase tracking-wider"
+            >
+              Prazos Críticos (< 48h)
+            </div>
+            <div class="text-3xl font-bold text-emerald-400 mt-1 font-serif">
+              0
+            </div>
+            <div class="text-xs font-semibold text-slate-400 mt-2">
+              Operação estabilizada
+            </div>
+          </div>
+        </div>
+        <!-- Admin Case Table -->
+        <div
+          class="bg-brand-900 border border-brand-800/60 rounded-2xl shadow-lg overflow-hidden"
+        >
+          <div
+            class="p-5 border-b border-brand-800/60 flex justify-between items-center bg-brand-950/30"
+          >
+            <h3 class="font-bold text-base text-white font-serif">
+              Monitoramento de Demandas
+            </h3>
+            <span
+              class="text-xs font-semibold text-brand-gold bg-brand-950 px-3 py-1 rounded-full border border-brand-800"
+              >Total: <span id="admin-total-cases-count">3</span></span
+            >
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead
+                class="bg-brand-950 text-slate-400 font-bold border-b border-brand-800/60 text-xs uppercase tracking-wider"
+              >
+                <tr>
+                  <th class="p-4">ID Interno</th>
+                  <th class="p-4">Cliente</th>
+                  <th class="p-4">Categoria</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4">Prazo</th>
+                  <th class="p-4">Responsável</th>
+                  <th class="p-4 text-right">Ação</th>
+                </tr>
+              </thead>
+              <tbody
+                id="admin-cases-table-body"
+                class="divide-y divide-brand-800/40 text-slate-300"
+              >
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- VIEW 4: SUBSCRIPTION & BILLING -->
+      <section
+        id="view-subscription"
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 hidden animate-fade-in"
+      >
+        <button
+          onclick="app.setRoute('home')"
+          class="text-sm font-bold text-brand-gold flex items-center space-x-2 hover:text-brand-goldLight transition-colors"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Voltar ao painel principal</span>
+        </button>
+        <div
+          class="bg-gradient-to-br from-brand-900 to-brand-950 border border-brand-800/60 rounded-3xl p-8 shadow-xl"
+        >
+          <h2 class="text-3xl font-extrabold font-serif text-white mb-3">
+            Assinatura & Faturamento
+          </h2>
+          <p class="text-sm text-slate-400 max-w-3xl">
+            Gerencie seu plano de proteção jurídica. Abertura ilimitada de
+            defesas, suporte humano especializado e tecnologia IA para
+            agilidade. (Custas externas de órgãos oficiais não inclusas).
+          </p>
+          <!-- Plans -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <!-- Monthly Plan -->
+            <div
+              id="card-plan-monthly"
+              class="border border-brand-800/60 bg-brand-950/40 rounded-2xl p-6 flex flex-col justify-between transition-all"
+            >
+              <div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-bold text-white">Plano Mensal</h3>
+                    <div
+                      class="text-3xl font-extrabold text-slate-200 mt-2 font-serif"
+                    >
+                      R$ 50
+                      <span class="text-sm font-medium text-slate-500 font-sans"
+                        >/mês</span
+                      >
+                    </div>
+                  </div>
+                  <span
+                    class="px-2.5 py-1 bg-brand-850 border border-brand-700 text-slate-300 text-[10px] font-bold rounded uppercase tracking-wide"
+                    >Flexível</span
+                  >
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span>Abertura de casos ilimitada</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span>Triagem IA + Revisão Humana</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span>Minutas de defesa personalizadas</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-8">
+                <button
+                  onclick="app.selectPlan('monthly')"
+                  id="btn-select-monthly"
+                  class="w-full py-3 rounded-xl border border-brand-700 bg-brand-850 hover:bg-brand-800 text-white font-bold text-sm transition-all shadow-sm"
+                >
+                  Migrar para Mensal
+                </button>
+              </div>
+            </div>
+            <!-- Annual Plan -->
+            <div
+              id="card-plan-annual"
+              class="border-2 border-brand-gold bg-brand-900/80 rounded-2xl p-6 flex flex-col justify-between relative shadow-glow-gold"
+            >
+              <div
+                class="absolute -top-3.5 right-6 px-3 py-1 bg-brand-gold text-brand-950 text-[10px] font-extrabold rounded-full uppercase tracking-widest shadow-md"
+              >
+                Plano Ativo
+              </div>
+              <div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-bold text-white">
+                      Plano Anual Premium
+                    </h3>
+                    <div
+                      class="text-3xl font-extrabold text-brand-gold mt-2 font-serif"
+                    >
+                      R$ 500
+                      <span
+                        class="text-sm font-medium text-brand-gold/60 font-sans"
+                        >/ano</span
+                      >
+                    </div>
+                    <div class="text-xs font-bold text-emerald-400 mt-1.5">
+                      <i class="fa-solid fa-tag mr-1"></i> Economia de R$
+                      100/ano
+                    </div>
+                  </div>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span class="font-medium text-white"
+                      >Todas as vantagens do mensal</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span>Vigência contínua por 12 meses</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-check text-brand-gold mt-1 mr-3"></i>
+                    <span>Prioridade na distribuição de casos</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-8">
+                <div
+                  class="w-full py-3 rounded-xl bg-brand-gold/10 text-brand-gold font-bold text-center text-sm border border-brand-gold/30"
+                >
+                  <i class="fa-solid fa-circle-check mr-2"></i> Assinatura Atual
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- VIEW 5: CASE DETAILS (TIMELINE, CHAT, DOCUMENTS, DEFENSE VIEWER) -->
+      <section
+        id="view-case-detail"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 hidden animate-fade-in"
+      >
+        <!-- Breadcrumb & Back -->
+        <div
+          class="flex items-center justify-between border-b border-brand-800/60 pb-3"
+        >
+          <button
+            onclick="app.setRoute('home')"
+            class="text-sm font-bold text-brand-gold flex items-center space-x-2 hover:text-brand-goldLight transition-colors"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Voltar à lista de casos</span>
+          </button>
+          <div
+            class="flex items-center space-x-3 bg-brand-950 px-3 py-1.5 rounded-lg border border-brand-800/60 shadow-inner"
+          >
+            <span
+              class="text-[10px] text-slate-500 font-bold uppercase tracking-wider"
+              >Ref:</span
+            >
+            <span
+              id="detail-case-internal-badge"
+              class="text-xs font-mono font-bold text-white"
+            >
+              IUS-2026-0814
+            </span>
+          </div>
+        </div>
+        <!-- Case Main Header Banner -->
+        <div
+          class="bg-gradient-to-r from-brand-900 to-brand-950 border border-brand-800/60 rounded-2xl p-6 shadow-lg space-y-4"
+        >
+          <div
+            class="flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+          >
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span
+                  id="detail-case-category-badge"
+                  class="px-2.5 py-1 rounded text-[10px] font-bold bg-brand-950 border border-brand-800 text-brand-gold uppercase tracking-wider shadow-sm"
+                >
+                  Multa de Trânsito
+                </span>
+                <span
+                  id="detail-case-status-badge"
+                  class="px-2.5 py-1 rounded text-[10px] font-bold bg-amber-950/50 text-amber-400 border border-amber-600/30 uppercase tracking-wider"
+                >
+                  Em Elaboração
+                </span>
+              </div>
+              <h1
+                id="detail-case-title"
+                class="text-2xl sm:text-3xl font-bold text-white font-serif leading-tight"
+              >
+                Auto de Infração DETRAN nº 39482-A
+              </h1>
+            </div>
+            <div
+              class="text-left sm:text-right bg-brand-950 p-3 rounded-xl border border-brand-800/60 min-w-[200px]"
+            >
+              <div
+                class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1"
+              >
+                Prazo de Resposta
+              </div>
+              <div
+                id="detail-case-deadline"
+                class="text-sm font-bold text-rose-400 flex items-center sm:justify-end gap-1.5"
+              >
+                <i class="fa-solid fa-calendar-xmark"></i> 22/09/2026
+              </div>
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-brand-800/50 text-sm"
+          >
+            <div>
+              <span class="text-xs text-slate-500 block mb-0.5"
+                >Órgão / Tribunal</span
+              >
+              <p id="detail-case-organ" class="font-bold text-slate-200">
+                DETRAN/SP - JARI
+              </p>
+            </div>
+            <div>
+              <span class="text-xs text-slate-500 block mb-0.5"
+                >Responsável Jurídico</span
+              >
+              <p
+                id="detail-case-assigned"
+                class="font-bold text-slate-200 flex items-center gap-1.5"
+              >
+                <i
+                  class="fa-solid fa-scale-balanced text-brand-gold text-[10px]"
+                ></i>
+                Dra. Beatriz Albuquerque
+              </p>
+            </div>
+            <div>
+              <span class="text-xs text-slate-500 block mb-0.5"
+                >Objetivo do Cliente</span
+              >
+              <p
+                id="detail-case-goal"
+                class="font-medium text-slate-300 truncate"
+                title="Anulação do auto por defeito de aferição"
+              >
+                Anulação do auto por defeito
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Workspace Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left 2 Cols: Editor/Timeline -->
+          <div class="lg:col-span-2 space-y-5">
+            <!-- Premium Tabs -->
+            <div
+              class="flex space-x-2 bg-brand-950 p-1.5 rounded-xl border border-brand-800/60 shadow-inner overflow-x-auto"
+            >
+              <button
+                onclick="app.setCaseDetailTab('defense')"
+                id="tab-btn-defense"
+                class="px-5 py-2 text-sm font-bold rounded-lg bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow whitespace-nowrap"
+              >
+                <i class="fa-solid fa-file-signature mr-2"></i> Peça de Defesa
+              </button>
+              <button
+                onclick="app.setCaseDetailTab('timeline')"
+                id="tab-btn-timeline"
+                class="px-5 py-2 text-sm font-bold rounded-lg text-slate-400 hover:text-white hover:bg-brand-800 transition-colors whitespace-nowrap"
+              >
+                <i class="fa-solid fa-timeline mr-2"></i> Histórico
+              </button>
+              <button
+                onclick="app.setCaseDetailTab('ocr')"
+                id="tab-btn-ocr"
+                class="px-5 py-2 text-sm font-bold rounded-lg text-slate-400 hover:text-white hover:bg-brand-800 transition-colors whitespace-nowrap"
+              >
+                <i class="fa-solid fa-microchip mr-2"></i> Dados OCR
+              </button>
+            </div>
+            <!-- TAB A: DEFENSE PIECE -->
+            <div id="tab-content-defense" class="space-y-4">
+              <!-- Editor Tools Header -->
+              <div
+                class="bg-brand-900 border border-brand-800/60 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3 shadow-sm"
+              >
+                <div class="flex items-center space-x-3">
+                  <span
+                    class="w-8 h-8 rounded-full bg-amber-950/50 flex items-center justify-center border border-amber-600/40 text-amber-400"
+                  >
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </span>
+                  <div>
+                    <div
+                      class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                    >
+                      Status do Documento
+                    </div>
+                    <div
+                      id="defense-doc-status"
+                      class="text-sm font-bold text-amber-400"
+                    >
+                      Rascunho em Revisão
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <button
+                    onclick="app.exportDefensePDF()"
+                    class="px-3 py-1.5 bg-brand-950 hover:bg-brand-850 text-white border border-brand-700 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm"
+                  >
+                    <i class="fa-solid fa-file-pdf text-rose-400"></i> Baixar
+                    PDF
+                  </button>
+                  <button
+                    onclick="app.copyDefenseText()"
+                    class="px-3 py-1.5 bg-brand-950 hover:bg-brand-850 text-white border border-brand-700 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm"
+                  >
+                    <i class="fa-regular fa-copy text-slate-400"></i> Copiar
+                  </button>
+                </div>
+              </div>
+              <!-- Paper Editor Simulation -->
+              <div
+                class="print-preview-paper rounded-xl p-8 sm:p-12 text-slate-800 font-serif leading-relaxed text-sm border border-slate-300 relative shadow-xl group bg-white"
+              >
+                <div
+                  id="defense-edit-btn-container"
+                  class="absolute top-4 right-4 hidden"
+                >
+                  <!-- Rendered via JS -->
+                </div>
+                <div id="defense-rendered-text" class="space-y-4">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+              <!-- Action box for protocol -->
+              <div
+                id="defense-action-box"
+                class="bg-gradient-to-r from-brand-900 to-brand-950 border border-brand-800/60 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg"
+              >
+                <div>
+                  <div
+                    class="text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-1"
+                  >
+                    Próximo Passo
+                  </div>
+                  <div class="text-sm text-slate-300">
+                    Valide o documento e registre o comprovante oficial de
+                    entrega.
+                  </div>
+                </div>
+                <button
+                  onclick="app.openProtocolModal()"
+                  class="px-5 py-2.5 bg-brand-850 border border-brand-gold/50 hover:bg-brand-800 text-brand-gold font-bold rounded-xl text-sm transition-all shadow flex items-center shrink-0"
+                >
+                  <i class="fa-solid fa-stamp mr-2"></i> Registrar Protocolo
+                </button>
+              </div>
+            </div>
+            <!-- TAB B: TIMELINE -->
+            <div id="tab-content-timeline" class="space-y-4 hidden">
+              <div
+                class="bg-brand-900 border border-brand-800/60 rounded-xl p-6 shadow-md"
+              >
+                <div
+                  id="timeline-items"
+                  class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-px before:bg-brand-700"
+                >
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+            </div>
+            <!-- TAB C: OCR -->
+            <div id="tab-content-ocr" class="space-y-4 hidden">
+              <div
+                class="bg-brand-900 border border-brand-800/60 rounded-xl p-6 shadow-md"
+              >
+                <!-- OCR form details -->
+                <p class="text-sm text-slate-400 mb-4">
+                  Dados extraídos automaticamente. Verifique antes de protocolar
+                  a defesa definitiva.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <label
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1"
+                      >Nome do Notificado</label
+                    >
+                    <input
+                      type="text"
+                      id="ocr-field-name"
+                      class="w-full bg-brand-950 border border-brand-700 rounded-lg p-2.5 text-white font-medium focus:border-brand-gold focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1"
+                      >CPF</label
+                    >
+                    <input
+                      type="text"
+                      id="ocr-field-cpf"
+                      class="w-full bg-brand-950 border border-brand-700 rounded-lg p-2.5 text-white font-medium focus:border-brand-gold focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1"
+                      >Nº Documento/Auto</label
+                    >
+                    <input
+                      type="text"
+                      id="ocr-field-num"
+                      class="w-full bg-brand-950 border border-brand-700 rounded-lg p-2.5 text-white font-medium focus:border-brand-gold focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1"
+                      >Prazo no Documento</label
+                    >
+                    <input
+                      type="date"
+                      id="ocr-field-date"
+                      class="w-full bg-brand-950 border border-brand-700 rounded-lg p-2.5 text-white font-medium focus:border-brand-gold focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-end">
+                  <button
+                    onclick="app.saveOcrValidation()"
+                    class="px-5 py-2.5 bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 font-bold rounded-lg shadow-glow-gold hover:shadow-glow-gold-hover transition-all text-sm"
+                  >
+                    Salvar Extração
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Col: Docs & Chat -->
+          <div class="space-y-5">
+            <!-- Documents -->
+            <div
+              class="bg-brand-900 border border-brand-800/60 rounded-xl p-5 shadow-md"
+            >
+              <div class="flex justify-between items-center mb-4">
+                <h3
+                  class="text-[11px] font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  <i class="fa-solid fa-paperclip text-brand-gold mr-1.5"></i>
+                  Anexos (<span id="detail-docs-count">2</span>)
+                </h3>
+                <button
+                  onclick="app.triggerComplementDocsModal()"
+                  class="text-xs font-bold text-brand-gold hover:text-white transition-colors"
+                >
+                  + Novo
+                </button>
+              </div>
+              <div id="detail-docs-list" class="space-y-2"></div>
+            </div>
+            <!-- Chat -->
+            <div
+              class="bg-brand-900 border border-brand-800/60 rounded-xl flex flex-col h-[500px] overflow-hidden shadow-md relative"
+            >
+              <div
+                class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-850/20 to-transparent pointer-events-none"
+              ></div>
+              <div
+                class="p-4 bg-brand-950/80 border-b border-brand-800/60 flex items-center justify-between z-10 backdrop-blur-sm"
+              >
+                <div>
+                  <h4 class="text-sm font-bold text-white font-serif">
+                    <i class="fa-regular fa-comments text-brand-gold mr-2"></i>
+                    Chat Privativo
+                  </h4>
+                </div>
+              </div>
+              <div
+                id="chat-messages-container"
+                class="flex-1 overflow-y-auto p-4 space-y-3 z-10"
+              ></div>
+              <div
+                class="p-3 bg-brand-950/80 border-t border-brand-800/60 z-10 backdrop-blur-sm"
+              >
+                <form
+                  onsubmit="app.sendChatMessage(event)"
+                  class="flex items-center space-x-2 relative"
+                >
+                  <input
+                    type="text"
+                    id="chat-input-text"
+                    placeholder="Digite aqui..."
+                    class="flex-1 bg-brand-900 border border-brand-700 rounded-xl pl-4 pr-10 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold shadow-inner transition-colors"
+                  />
+                  <button
+                    type="button"
+                    onclick="app.attachChatFile()"
+                    class="absolute right-14 p-1.5 text-slate-400 hover:text-brand-gold transition-colors"
+                  >
+                    <i class="fa-solid fa-paperclip"></i>
+                  </button>
+                  <button
+                    type="submit"
+                    class="w-10 h-10 bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 rounded-xl font-bold flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+                  >
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- MODALS INCLUDED (New Case, Protocol, Config, Notifications) -->
+      <!-- MODAL 1: NEW CASE WIZARD -->
+      <div
+        id="modal-new-case"
+        class="fixed inset-0 bg-brand-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden"
+      >
+        <div
+          class="bg-brand-900 border border-brand-700/80 rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-fade-in relative"
+        >
+          <div
+            class="p-5 border-b border-brand-800/60 flex justify-between items-center bg-brand-950/50 backdrop-blur-sm"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white font-serif">
+                <i class="fa-solid fa-scale-balanced text-brand-gold mr-2"></i>
+                Nova Solicitação Jurídica
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Preencha os detalhes para que a nossa IA e advogados possam
+                iniciar a sua defesa.
+              </p>
+            </div>
+            <button
+              onclick="app.closeModal('modal-new-case')"
+              class="text-slate-400 hover:text-white transition-colors"
+            >
+              <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+          </div>
+          <div
+            class="p-6 overflow-y-auto space-y-8 text-sm flex-1 custom-scrollbar"
+          >
+            <!-- SECTION 1: Categoria e Área -->
+            <div class="space-y-3">
+              <label
+                class="flex items-center text-[11px] font-bold text-brand-gold uppercase tracking-wider border-b border-brand-800/60 pb-2"
+              >
+                <span
+                  class="w-5 h-5 rounded-full bg-brand-800 flex items-center justify-center text-white mr-2"
+                  >1</span
+                >
+                Área do Direito
+              </label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <label
+                  class="p-3 rounded-xl border border-brand-700 bg-brand-950 hover:border-brand-gold/50 cursor-pointer flex flex-col items-center justify-center text-center space-y-2 text-slate-300 transition-all group"
+                >
+                  <input
+                    type="radio"
+                    name="case-type"
+                    value="multa"
+                    checked
+                    class="hidden peer"
+                  />
+                  <i
+                    class="fa-solid fa-car text-xl text-slate-500 peer-checked:text-brand-gold group-hover:text-brand-gold/70 transition-colors"
+                  ></i>
+                  <span class="font-medium peer-checked:text-white"
+                    >Trânsito</span
+                  >
+                  <div
+                    class="w-full h-0.5 bg-transparent peer-checked:bg-brand-gold rounded-full mt-2"
+                  ></div>
+                </label>
+                <label
+                  class="p-3 rounded-xl border border-brand-700 bg-brand-950 hover:border-brand-gold/50 cursor-pointer flex flex-col items-center justify-center text-center space-y-2 text-slate-300 transition-all group"
+                >
+                  <input
+                    type="radio"
+                    name="case-type"
+                    value="consumo"
+                    class="hidden peer"
+                  />
+                  <i
+                    class="fa-solid fa-cart-shopping text-xl text-slate-500 peer-checked:text-brand-gold group-hover:text-brand-gold/70 transition-colors"
+                  ></i>
+                  <span class="font-medium peer-checked:text-white"
+                    >Consumidor</span
+                  >
+                  <div
+                    class="w-full h-0.5 bg-transparent peer-checked:bg-brand-gold rounded-full mt-2"
+                  ></div>
+                </label>
+                <label
+                  class="p-3 rounded-xl border border-brand-700 bg-brand-950 hover:border-brand-gold/50 cursor-pointer flex flex-col items-center justify-center text-center space-y-2 text-slate-300 transition-all group"
+                >
+                  <input
+                    type="radio"
+                    name="case-type"
+                    value="civil"
+                    class="hidden peer"
+                  />
+                  <i
+                    class="fa-solid fa-handshake text-xl text-slate-500 peer-checked:text-brand-gold group-hover:text-brand-gold/70 transition-colors"
+                  ></i>
+                  <span class="font-medium peer-checked:text-white"
+                    >Cível / Família</span
+                  >
+                  <div
+                    class="w-full h-0.5 bg-transparent peer-checked:bg-brand-gold rounded-full mt-2"
+                  ></div>
+                </label>
+                <label
+                  class="p-3 rounded-xl border border-brand-700 bg-brand-950 hover:border-brand-gold/50 cursor-pointer flex flex-col items-center justify-center text-center space-y-2 text-slate-300 transition-all group"
+                >
+                  <input
+                    type="radio"
+                    name="case-type"
+                    value="trabalho"
+                    class="hidden peer"
+                  />
+                  <i
+                    class="fa-solid fa-helmet-safety text-xl text-slate-500 peer-checked:text-brand-gold group-hover:text-brand-gold/70 transition-colors"
+                  ></i>
+                  <span class="font-medium peer-checked:text-white"
+                    >Trabalhista</span
+                  >
+                  <div
+                    class="w-full h-0.5 bg-transparent peer-checked:bg-brand-gold rounded-full mt-2"
+                  ></div>
+                </label>
+              </div>
+            </div>
+            <!-- SECTION 2: Relato e Objetivos -->
+            <div class="space-y-4">
+              <label
+                class="flex items-center text-[11px] font-bold text-brand-gold uppercase tracking-wider border-b border-brand-800/60 pb-2"
+              >
+                <span
+                  class="w-5 h-5 rounded-full bg-brand-800 flex items-center justify-center text-white mr-2"
+                  >2</span
+                >
+                Ocorrência e Relato
+              </label>
+              <div>
+                <label class="block font-bold text-slate-300 mb-1 text-xs"
+                  >Descreva o que aconteceu em detalhes *</label
+                >
+                <p class="text-[10px] text-slate-500 mb-2">
+                  Seja claro sobre datas, pessoas envolvidas e como o problema
+                  começou.
+                </p>
+                <textarea
+                  id="new-case-desc"
+                  rows="4"
+                  placeholder="Ex: No dia 15/03 comprei uma geladeira que veio com defeito. A loja se recusa a trocar..."
+                  class="w-full bg-brand-950 border border-brand-700 rounded-xl p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 shadow-inner transition-colors resize-none"
+                ></textarea>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block font-bold text-slate-300 mb-1 text-xs"
+                    >Qual o seu objetivo principal? *</label
+                  >
+                  <select
+                    class="w-full bg-brand-950 border border-brand-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-gold shadow-inner appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled selected>
+                      Selecione um resultado esperado...
+                    </option>
+                    <option value="anular">
+                      Anular/Cancelar uma cobrança ou multa
+                    </option>
+                    <option value="indenizacao">
+                      Receber Indenização (Danos Morais/Materiais)
+                    </option>
+                    <option value="obrigacao">
+                      Obrigar empresa a cumprir contrato
+                    </option>
+                    <option value="defesa">
+                      Me defender de um processo já aberto
+                    </option>
+                    <option value="outro">Outro (Explicado no relato)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-300 mb-1 text-xs"
+                    >Valor estimado envolvido (R$)</label
+                  >
+                  <input
+                    type="number"
+                    placeholder="Ex: 1500,00"
+                    class="w-full bg-brand-950 border border-brand-700 rounded-xl p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-gold shadow-inner transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- SECTION 3: Dados Oficiais e Urgência -->
+            <div class="space-y-4">
+              <label
+                class="flex items-center text-[11px] font-bold text-brand-gold uppercase tracking-wider border-b border-brand-800/60 pb-2"
+              >
+                <span
+                  class="w-5 h-5 rounded-full bg-brand-800 flex items-center justify-center text-white mr-2"
+                  >3</span
+                >
+                Dados Oficiais e Prazos
+              </label>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block font-bold text-slate-300 mb-1 text-xs"
+                    >Órgão, Empresa ou Tribunal</label
+                  >
+                  <input
+                    type="text"
+                    id="new-case-organ"
+                    placeholder="Ex: Procon, Detran-SP, Enel..."
+                    class="w-full bg-brand-950 border border-brand-700 rounded-xl p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-gold shadow-inner transition-colors"
+                  />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-300 mb-1 text-xs"
+                    >Nº do Auto, Notificação ou Processo</label
+                  >
+                  <input
+                    type="text"
+                    id="new-case-number"
+                    placeholder="Opcional se ainda não existir"
+                    class="w-full bg-brand-950 border border-brand-700 rounded-xl p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-gold shadow-inner transition-colors"
+                  />
+                </div>
+              </div>
+              <div
+                class="bg-brand-950 border border-amber-900/50 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 mt-2"
+              >
+                <div class="flex items-start space-x-3">
+                  <i
+                    class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5 text-lg"
+                  ></i>
+                  <div>
+                    <p class="font-bold text-white text-sm">
+                      Existe algum prazo fatal?
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Ex: Recebeu carta dizendo que tem 15 dias para responder.
+                    </p>
+                  </div>
+                </div>
+                <div class="shrink-0 w-full md:w-auto">
+                  <input
+                    type="date"
+                    class="w-full md:w-40 bg-brand-900 border border-brand-700 rounded-lg p-2 text-white focus:outline-none focus:border-brand-gold shadow-inner cursor-text text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- SECTION 4: Anexos -->
+            <div class="space-y-4">
+              <label
+                class="flex items-center text-[11px] font-bold text-brand-gold uppercase tracking-wider border-b border-brand-800/60 pb-2"
+              >
+                <span
+                  class="w-5 h-5 rounded-full bg-brand-800 flex items-center justify-center text-white mr-2"
+                  >4</span
+                >
+                Anexos e Evidências
+              </label>
+              <div
+                class="border-2 border-dashed border-brand-700 hover:border-brand-gold/60 rounded-xl p-8 text-center cursor-pointer bg-brand-950/40 transition-colors group"
+                onclick="document.getElementById('file-upload-input').click()"
+              >
+                <input
+                  type="file"
+                  id="file-upload-input"
+                  class="hidden"
+                  multiple
+                  onchange="app.handleFileUpload(event)"
+                />
+                <div
+                  class="w-14 h-14 rounded-full bg-brand-900 border border-brand-700 mx-auto flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-brand-gold/50 transition-all"
+                >
+                  <i
+                    class="fa-solid fa-cloud-arrow-up text-2xl text-brand-gold"
+                  ></i>
+                </div>
+                <p class="font-bold text-white text-base mb-1">
+                  Clique para anexar arquivos
+                </p>
+                <p class="text-xs text-slate-400">
+                  Envie PDFs de notificações, prints de WhatsApp, contratos,
+                  fotos ou áudios.
+                </p>
+              </div>
+              <!-- Upload Preview List -->
+              <div
+                id="upload-preview-list"
+                class="mt-3 space-y-2 empty:hidden"
+              ></div>
+            </div>
+          </div>
+          <!-- Footer Actions -->
+          <div
+            class="p-5 border-t border-brand-800/60 bg-brand-950/50 backdrop-blur-sm flex justify-between items-center"
+          >
+            <button
+              onclick="app.closeModal('modal-new-case')"
+              class="px-5 py-2.5 text-slate-400 font-bold hover:text-white transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              onclick="app.submitNewCase()"
+              class="px-8 py-3 bg-gradient-to-r from-brand-gold to-[#d4a359] hover:from-[#d4a359] hover:to-[#ba8a38] text-brand-950 font-extrabold rounded-xl shadow-glow-gold hover:shadow-glow-gold-hover transition-all flex items-center"
+            >
+              <i class="fa-solid fa-paper-plane mr-2"></i> Enviar para IA e
+              Equipe
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- TOAST NOTIFICATION -->
+      <div
+        id="app-toast"
+        class="fixed bottom-6 right-6 bg-brand-900 border border-brand-gold/50 text-white px-5 py-3.5 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] text-sm font-medium flex items-center space-x-3 transform transition-all duration-300 translate-y-24 opacity-0 z-[100]"
+      >
+        <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+        <span id="toast-message">Notificação salva.</span>
+      </div>
+    </div>
+    <!-- END APP WRAPPER -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signInAnonymously,
+        signOut,
+        onAuthStateChanged,
+        signInWithCustomToken,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        getDoc,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+      const appId = typeof __app_id !== "undefined" ? __app_id : "iustus-app";
+      let firebaseConfig = {};
+      try {
+        if (typeof __firebase_config !== "undefined" && __firebase_config) {
+          firebaseConfig =
+            typeof __firebase_config === "string"
+              ? JSON.parse(__firebase_config)
+              : __firebase_config;
+        }
+      } catch (e) {}
+      if (Object.keys(firebaseConfig).length === 0) {
+        firebaseConfig = {
+          apiKey: "mock-key",
+          projectId: "mock-project",
+          appId: "mock-app",
+        };
+      }
+      let auth, db;
+      try {
+        const firebaseApp = initializeApp(firebaseConfig);
+        auth = getAuth(firebaseApp);
+        db = getFirestore(firebaseApp);
+      } catch (e) {
+        console.error("Firebase init bypassed for UI rendering.");
+      }
+      let isRegisterMode = false;
+      const authView = document.getElementById("view-auth");
+      const appContent = document.getElementById("app-content-wrapper");
+      const authForm = document.getElementById("auth-form"); // Estado da Memória do App const state = { currentRole: 'client', currentRoute: 'home', activeCaseId: 'IUS-2026-0814', lawyerTab: 'assigned', caseFilter: 'all', isEditingDefense: false, user: { id: 'usr_849201', name: 'Carlos Eduardo', email: 'carlos@iustus.com', subscription: { plan: 'annual' } }, lawyer: { id: 'law_102', name: 'Dra. Beatriz Albuquerque', oab: 'OAB/SP 412.980' }, cases: [ { id: 'IUS-2026-0814', title: 'Auto de Infração DETRAN nº 39482-A', category: 'multa', categoryLabel: 'Multa de Trânsito', status: 'in_review', statusLabel: 'Em Elaboração por Advogado', organ: 'DETRAN/SP - JARI', processNumber: 'DETRAN-39482-A', statedDeadline: '22/09/2026', deadlineConfirmed: false, userGoal: 'Anulação do auto', narrative: 'Recebi notificação de avanço de sinal sem foto nítida.', assignedLawyerId: 'law_102', assignedLawyerName: 'Dra. Beatriz Albuquerque', documents: [ { name: 'Notificacao_Autuacao.pdf', status: 'Lido OCR' }, { name: 'CNH_Verso.jpg', status: 'Validado' } ], ocrData: { organ: 'DETRAN', driverName: 'Carlos', cpf: '123', autoNumber: '39482', inferredDeadline: '2026-09-22' }, defensePiece: { title: 'DEFESA PRÉVIA ADMINISTRATIVA', status: 'Rascunho Preliminar', text: 'ILUSTRÍSSIMO SENHOR PRESIDENTE DA JARI...\n\nVem respeitosamente contestar a infração...' }, timeline: [ { date: 'Hoje', title: 'Caso Distribuído', desc: 'Dra. Beatriz iniciou a elaboração da minuta de defesa.', author: 'Sistema' }, { date: 'Ontem', title: 'Triagem IA Concluída', desc: 'Dados OCR validados pelo usuário e regras de encaminhamento aplicadas.', author: 'IA IUSTUS' }, { date: 'Ontem', title: 'Abertura do Caso', desc: 'Cliente realizou o upload da notificação e relato inicial.', author: 'Carlos Eduardo' } ], chat: [] }, { id: 'IUS-2026-0815', title: 'Cobrança Indevida Cartão de Crédito', category: 'consumo', categoryLabel: 'Consumidor', status: 'filed', statusLabel: 'Protocolado', organ: 'Procon-SP', processNumber: 'PRC-99882', statedDeadline: '10/09/2026', deadlineConfirmed: true, userGoal: 'Estorno de R$ 800', narrative: 'Fatura com compras não reconhecidas.', assignedLawyerId: 'law_102', assignedLawyerName: 'Dra. Beatriz Albuquerque', documents: [{ name: 'Fatura_Agosto.pdf', status: 'Validado' }], ocrData: {}, defensePiece: { title: 'RECLAMAÇÃO PROCON', status: 'Protocolado', text: 'Ao Diretor do PROCON-SP...' }, timeline: [], chat: [] } ] }; const app = { init() { this.renderCasesList(); this.renderLawyerCases(); if(authView.classList.contains('hidden')) { this.switchRole('client'); } }, toggleUserMenu() { document.getElementById('user-dropdown-menu').classList.toggle('hidden'); }, toggleNotificationModal() { this.showToast('Nenhuma notificação nova no momento.'); }, logout() { authView.classList.remove('hidden'); appContent.classList.add('hidden'); this.showToast('Desconectado com sucesso.'); }, switchRole(role) { state.currentRole = role; document.getElementById('user-dropdown-menu').classList.add('hidden'); ['client', 'lawyer', 'admin'].forEach(r => { const btn = document.getElementById(`role-btn-${r}`); if(btn) btn.className = r === role ? "px-3 py-1.5 text-xs rounded-md font-bold transition-all bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow-md" : "px-3 py-1.5 text-xs rounded-md font-medium transition-all text-slate-400 hover:text-white"; }); const roleLabel = document.getElementById('user-role-label'); if (role === 'client') { roleLabel.innerText = 'Cliente Assinante'; this.setRoute('home'); } else if (role === 'lawyer') { roleLabel.innerText = 'Advogado OAB'; this.setRoute('lawyer'); } else { roleLabel.innerText = 'Administrador'; this.setRoute('admin'); } this.showToast(`Visualizando como: ${role.toUpperCase()}`); }, setRoute(route) { state.currentRoute = route; ['view-client', 'view-lawyer', 'view-admin', 'view-subscription', 'view-case-detail'].forEach(v => { document.getElementById(v).classList.add('hidden'); }); if (route === 'home') { document.getElementById('view-client').classList.remove('hidden'); this.renderCasesList(); } else if (route === 'lawyer') { document.getElementById('view-lawyer').classList.remove('hidden'); this.renderLawyerCases(); } else if (route === 'admin') { document.getElementById('view-admin').classList.remove('hidden'); this.renderAdminTable(); } else if (route === 'subscription') { document.getElementById('view-subscription').classList.remove('hidden'); } else if (route === 'case-detail') { document.getElementById('view-case-detail').classList.remove('hidden'); this.renderCaseDetail(); } }, filterCases(filter) { state.caseFilter = filter; document.querySelectorAll('.case-filter-btn').forEach(btn => { if(btn.dataset.filter === filter) { btn.className = "case-filter-btn px-3 py-1.5 rounded-md bg-brand-800 text-brand-gold font-bold whitespace-nowrap shadow-sm"; } else { btn.className = "case-filter-btn px-3 py-1.5 rounded-md text-slate-400 hover:text-white whitespace-nowrap transition-colors"; } }); this.renderCasesList(); }, renderCasesList() { const container = document.getElementById('cases-container'); if(!container) return; let filteredCases = state.cases; if (state.caseFilter !== 'all') { filteredCases = state.cases.filter(c => c.category === state.caseFilter); } if(filteredCases.length === 0) { container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500 text-sm">Nenhum processo encontrado nesta categoria.</div>`; return; } container.innerHTML = filteredCases.map(c => ` <div onclick="app.openCaseDetail('${c.id}')" class="bg-gradient-to-b from-brand-900 to-brand-950 border border-brand-800/60 hover:border-brand-gold/40 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg cursor-pointer group"> <div class="space-y-3"> <div class="flex justify-between items-start"> <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-brand-950 border border-brand-800 text-slate-300"> ${c.categoryLabel} </span> <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider border bg-amber-950/40 text-amber-400 border-amber-600/30"> ${c.statusLabel} </span> </div> <div> <h3 class="font-bold text-base text-white group-hover:text-brand-gold transition-colors line-clamp-2 font-serif">${c.title}</h3> <p class="text-xs text-slate-400 line-clamp-2 mt-2">${c.narrative}</p> </div> </div> <div class="mt-5 pt-4 border-t border-brand-800/50 flex justify-between items-center"> <span class="text-[11px] font-bold text-slate-500 font-mono tracking-wider">${c.id}</span> <div class="w-8 h-8 rounded-full bg-brand-850 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-950 transition-colors shadow-sm"> <i class="fa-solid fa-arrow-right"></i> </div> </div> </div> `).join(''); }, setLawyerTab(tab) { state.lawyerTab = tab; const btnAssigned = document.getElementById('tab-lawyer-assigned'); const btnInbox = document.getElementById('tab-lawyer-inbox'); if(tab === 'assigned') { btnAssigned.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow-md"; btnInbox.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-brand-900 border border-brand-800 text-slate-300 hover:text-white hover:bg-brand-800 transition-colors"; } else { btnInbox.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow-md"; btnAssigned.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-brand-900 border border-brand-800 text-slate-300 hover:text-white hover:bg-brand-800 transition-colors"; } this.renderLawyerCases(); }, renderLawyerCases() { const container = document.getElementById('lawyer-cases-list'); if(!container) return; let displayCases = state.cases; if(state.lawyerTab === 'inbox') { displayCases = [{ id: 'IUS-2026-0999', categoryLabel: 'Trabalhista', title: 'Rescisão Indireta (Triagem IA)', narrative: 'Empresa não recolhe FGTS há 8 meses.' }]; } if(displayCases.length === 0) { container.innerHTML = `<div class="text-center py-8 text-slate-500 text-sm">Fila vazia no momento.</div>`; return; } container.innerHTML = displayCases.map(c => ` <div class="bg-brand-900 border border-brand-800/60 rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-5 shadow-sm hover:border-brand-gold/30 transition-colors"> <div class="space-y-1.5 flex-1"> <div class="flex items-center gap-2"> <span class="font-mono font-bold text-brand-gold text-xs">${c.id}</span> <span class="px-2 py-0.5 rounded bg-brand-950 border border-brand-800 text-slate-300 text-[10px]">${c.categoryLabel}</span> </div> <h4 class="font-bold text-white text-base font-serif">${c.title}</h4> <p class="text-xs text-slate-400 line-clamp-1">${c.narrative}</p> </div> ${state.lawyerTab === 'assigned' ? `<button onclick="app.openCaseDetail('${c.id}')" class="px-5 py-2.5 bg-brand-850 hover:bg-brand-800 border border-brand-gold/30 text-brand-gold font-bold rounded-xl text-sm transition-all shadow-sm w-full md:w-auto"> Acessar Autos </button>` : `<div class="flex gap-2 w-full md:w-auto"> <button onclick="app.showToast('Caso recusado por conflito/impedimento.')" class="px-4 py-2.5 border border-brand-800 text-slate-400 hover:text-white hover:bg-brand-800 font-bold rounded-xl text-sm transition-all shadow-sm flex-1">Recusar</button> <button onclick="app.showToast('Caso assumido com sucesso.'); app.setLawyerTab('assigned');" class="px-4 py-2.5 bg-brand-850 hover:bg-brand-800 border border-brand-gold/30 text-brand-gold font-bold rounded-xl text-sm transition-all shadow-sm flex-1">Assumir Caso</button> </div>` } </div> `).join(''); }, renderAdminTable() { const tbody = document.getElementById('admin-cases-table-body'); if(!tbody) return; tbody.innerHTML = state.cases.map(c => ` <tr class="hover:bg-brand-800/20 transition-colors"> <td class="p-4 font-mono text-brand-gold">${c.id}</td> <td class="p-4">${state.user.name}</td> <td class="p-4"><span class="px-2 py-1 bg-brand-950 border border-brand-800 rounded text-[10px]">${c.categoryLabel}</span></td> <td class="p-4 text-xs font-medium text-amber-400">${c.statusLabel}</td> <td class="p-4 text-xs">${c.statedDeadline}</td> <td class="p-4 text-xs"><i class="fa-solid fa-scale-balanced text-slate-500 mr-1"></i> ${c.assignedLawyerName}</td> <td class="p-4 text-right"> <button onclick="app.showToast('Redirecionando responsabilidade do caso...')" class="px-2 py-1 bg-brand-800 text-white rounded hover:bg-brand-700 text-xs shadow-sm">Reatribuir</button> </td> </tr> `).join(''); }, openCaseDetail(id) { state.activeCaseId = id; this.setRoute('case-detail'); }, renderCaseDetail() { const c = state.cases.find(x => x.id === state.activeCaseId) || state.cases[0]; document.getElementById('detail-case-internal-badge').innerText = c.id; document.getElementById('detail-case-title').innerText = c.title; document.getElementById('detail-case-organ').innerText = c.organ || 'Não informado'; const editorHtml = state.isEditingDefense && state.currentRole === 'lawyer' ? `<div> <input type="text" id="edit-def-title" value="${c.defensePiece.title}" class="w-full text-center font-bold mb-4 p-2 bg-slate-50 border rounded text-slate-900 focus:outline-none"> <textarea id="edit-def-text" class="w-full h-[300px] p-4 bg-slate-50 border rounded text-slate-800 focus:outline-none">${c.defensePiece.text}</textarea> </div>` : `<div class="text-center font-bold text-lg mb-6 border-b pb-4">${c.defensePiece.title}</div> <div class="whitespace-pre-line text-slate-700">${c.defensePiece.text}</div>`; document.getElementById('defense-rendered-text').innerHTML = editorHtml; const btnContainer = document.getElementById('defense-edit-btn-container'); if(state.currentRole === 'lawyer') { btnContainer.classList.remove('hidden'); btnContainer.innerHTML = state.isEditingDefense ? `<button onclick="app.saveDefenseEdit()" class="px-4 py-2 bg-emerald-600 text-white rounded font-bold text-xs shadow">Salvar Edição</button>` : `<button onclick="app.toggleDefenseEditMode()" class="px-4 py-2 bg-slate-800 text-white rounded font-bold text-xs shadow flex items-center"><i class="fa-solid fa-pen mr-2"></i> Editar Peça</button>`; } else { btnContainer.classList.add('hidden'); } const docsList = document.getElementById('detail-docs-list'); if(docsList && c.documents) { docsList.innerHTML = c.documents.map(doc => ` <div class="flex items-center justify-between p-2.5 bg-brand-950 rounded-lg border border-brand-800/60 mb-2"> <div class="flex items-center gap-2"> <i class="fa-solid fa-file-pdf text-brand-gold"></i> <span class="text-xs text-white">${doc.name}</span> </div> <span class="text-[10px] text-emerald-400 font-bold bg-brand-900 px-2 py-0.5 rounded border border-brand-800">${doc.status}</span> </div> `).join(''); document.getElementById('detail-docs-count').innerText = c.documents.length; } const timeline = document.getElementById('timeline-items'); if(timeline && c.timeline) { timeline.innerHTML = c.timeline.map((item, idx) => ` <div class="relative pl-10"> <div class="absolute left-0 w-7 h-7 bg-brand-950 border-2 border-brand-700 rounded-full flex items-center justify-center z-10 shadow-sm"> <i class="fa-solid ${idx === 0 ? 'fa-thumbtack text-brand-gold' : 'fa-check text-slate-400'} text-[10px]"></i> </div> <div class="bg-brand-950 p-4 rounded-xl border border-brand-800/60 shadow-sm"> <div class="flex justify-between items-center mb-2"> <h5 class="text-sm font-bold text-white">${item.title}</h5> <span class="text-[10px] font-medium text-slate-500">${item.date}</span> </div> <p class="text-xs text-slate-400">${item.desc}</p> <div class="mt-2 text-[10px] text-brand-gold/80 font-bold uppercase tracking-wider">Autor: ${item.author}</div> </div> </div> `).join(''); } }, toggleDefenseEditMode() { state.isEditingDefense = !state.isEditingDefense; this.renderCaseDetail(); }, saveDefenseEdit() { const c = state.cases.find(x => x.id === state.activeCaseId); c.defensePiece.title = document.getElementById('edit-def-title').value; c.defensePiece.text = document.getElementById('edit-def-text').value; state.isEditingDefense = false; this.renderCaseDetail(); this.showToast('Defesa atualizada e salva com sucesso.'); }, setCaseDetailTab(tab) { ['defense', 'timeline', 'ocr'].forEach(t => { document.getElementById(`tab-content-${t}`).classList.toggle('hidden', t !== tab); const btn = document.getElementById(`tab-btn-${t}`); if (t === tab) { btn.className = "px-5 py-2 text-sm font-bold rounded-lg bg-gradient-to-r from-brand-gold to-[#d4a359] text-brand-950 shadow whitespace-nowrap"; } else { btn.className = "px-5 py-2 text-sm font-bold rounded-lg text-slate-400 hover:text-white hover:bg-brand-800 transition-colors whitespace-nowrap"; } }); }, showAdminConfigModal() { this.showToast('Motor de Regras IA e Fluxo de Trabalho aberto.'); }, selectPlan(plan) { this.showToast(`Transição para o Plano ${plan === 'monthly' ? 'Mensal' : 'Anual'} iniciada.`); }, exportDefensePDF() { this.showToast('Gerando PDF formatado da peça...'); setTimeout(() => this.showToast('Download do PDF concluído.'), 1500); }, copyDefenseText() { const text = document.getElementById('defense-rendered-text').innerText; navigator.clipboard.writeText(text).then(() => { this.showToast('Texto copiado para a área de transferência.'); }).catch(() => this.showToast('Erro ao copiar o texto.')); }, openProtocolModal() { this.showToast('Abertura de sistema para registrar protocolo e comprovante.'); }, saveOcrValidation() { this.showToast('Dados extraídos validados e salvos nos autos.'); }, triggerComplementDocsModal() { this.showToast('Preparando envio de anexo complementar...'); setTimeout(() => { const list = document.getElementById('detail-docs-list'); if(list) { list.innerHTML += `<div class="flex items-center justify-between p-2.5 bg-brand-950 rounded-lg border border-brand-800/60 mb-2"><div class="flex items-center gap-2"><i class="fa-solid fa-image text-brand-gold"></i><span class="text-xs text-white">Anexo_Complementar.jpg</span></div><span class="text-[10px] text-sky-400 font-bold bg-brand-900 px-2 py-0.5 rounded border border-brand-800">Enviado</span></div>`; const count = document.getElementById('detail-docs-count'); if(count) count.innerText = parseInt(count.innerText || '0') + 1; this.showToast('Documento anexado com sucesso ao caso.'); } }, 1000); }, sendChatMessage(e) { e.preventDefault(); const input = document.getElementById('chat-input-text'); const text = input.value.trim(); if(!text) return; const container = document.getElementById('chat-messages-container'); container.innerHTML += ` <div class="flex justify-end animate-fade-in"> <div class="bg-brand-700 text-white p-3 rounded-xl rounded-tr-sm max-w-[85%] text-sm shadow-md border border-brand-600"> <p>${text}</p> <span class="text-[9px] text-brand-goldLight/70 mt-1.5 block text-right">Agora mesmo</span> </div> </div> `; input.value = ''; container.scrollTop = container.scrollHeight; }, attachChatFile() { this.showToast('Processando anexo para o chat...'); setTimeout(() => { const container = document.getElementById('chat-messages-container'); container.innerHTML += ` <div class="flex justify-end animate-fade-in"> <div class="bg-brand-700 text-white p-3 rounded-xl rounded-tr-sm max-w-[85%] text-sm shadow-md border border-brand-600"> <div class="flex items-center gap-2 bg-brand-800 p-2 rounded border border-brand-600/50"> <i class="fa-solid fa-file-pdf text-rose-300"></i> <span class="text-xs font-medium">Documento_Assinado.pdf</span> </div> <span class="text-[9px] text-brand-goldLight/70 mt-1.5 block text-right">Agora mesmo</span> </div> </div> `; container.scrollTop = container.scrollHeight; }, 800); }, handleFileUpload(event) { const file = event.target.files[0]; if(file) { const list = document.getElementById('upload-preview-list'); list.innerHTML += `<div class="text-xs text-brand-gold flex items-center gap-2 mt-2 bg-brand-950 p-2 rounded border border-brand-700"><i class="fa-solid fa-check"></i> ${file.name}</div>`; this.showToast('Arquivo lido. Pronto para triagem.'); } }, showToast(msg) { const t = document.getElementById('app-toast'); document.getElementById('toast-message').innerText = msg; t.classList.remove('translate-y-24', 'opacity-0'); setTimeout(() => t.classList.add('translate-y-24', 'opacity-0'), 3000); }, openNewCaseModal() { document.getElementById('modal-new-case').classList.remove('hidden'); }, closeModal(id) { document.getElementById(id).classList.add('hidden'); }, submitNewCase() { this.closeModal('modal-new-case'); this.showToast('Novo caso enviado para a triagem IA e Advogados.'); } }; window.app = app; window.state = state; // Login Form bypass para demonstração fluida if(authForm) { authForm.addEventListener('submit', (e) => { e.preventDefault(); authView.classList.add('hidden'); appContent.classList.remove('hidden'); app.init(); app.showToast('Login efetuado com sucesso (Modo Seguro).'); }); } const googleBtn = document.getElementById('auth-google-btn'); if(googleBtn) { googleBtn.addEventListener('click', () => { authView.classList.add('hidden'); appContent.classList.remove('hidden'); app.init(); app.showToast('Autenticado via Google com sucesso.'); }); }
+    </script>
+  </body>
+</html>
