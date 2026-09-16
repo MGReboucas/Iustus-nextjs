@@ -1,15 +1,15 @@
 {
-  "name": "iustus-landing-page",
+  "name": "iustus",
   "version": "1.0.0",
   "private": true,
+  "description": "Repositório único do frontend, backend e infraestrutura Iustus",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "15.3.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
+    "typecheck": "npm --prefix frontend run typecheck",
+    "frontend:install": "npm --prefix frontend ci",
+    "docs:generate": "node docs/planejamento/gerar.cjs",
+    "docs:check": "node docs/planejamento/verificar.cjs"
   }
 }
