@@ -1,6 +1,6 @@
 # Contratos de API
 
-> Identidade está implementada e testada localmente conforme a seção abaixo. Contratos de pagamentos, casos e demais recursos descrevem o produto futuro. As duas rotas PagBank legadas permanecem no frontend.
+> Identidade está implementada e testada localmente conforme a seção abaixo. Casos/triagem possuem contrato local detalhado em [Casos](CASOS.md); pagamentos e demais recursos descrevem o produto futuro. As duas rotas PagBank legadas permanecem no frontend.
 
 ## API atual
 
@@ -31,8 +31,8 @@ Prefixo /api/v1, sem barra final nas rotas abaixo. Todas as mutações exigem CS
 | POST /admin/invitations | ADMIN com MFA, corpo somente email; cria convite LAWYER; 202 |
 | POST /auth/invitations/accept | token, name, password; cria advogado verificado; 201; login e MFA continuam obrigatórios |
 | GET /me | Perfil do próprio usuário; PATCH não implementado |
-| GET /dashboard/client | Sessão CLIENT; perfil e caseManagementAvailable=false |
-| GET /dashboard/team | Sessão LAWYER/ADMIN com MFA; perfil e caseManagementAvailable=false |
+| GET /dashboard/client | Sessão CLIENT; perfil e caseManagementAvailable=true |
+| GET /dashboard/team | Sessão LAWYER/ADMIN com MFA; perfil e caseManagementAvailable=true |
 
 Aceite development-v1 registra somente ciência do ambiente de testes. Políticas jurídicas versionadas do contrato futuro ainda não foram implementadas. Erros atuais usam error.code e error.message; requestId e contrato OpenAPI permanecem pendentes. Veja [Acesso local](ACESSO.md).
 
@@ -85,7 +85,9 @@ Identidade pertence ao Django; TOTP usa PyOTP e os segredos usam Fernet. O contr
 
 **Campos proibidos no backend próprio:** cardNumber/PAN, cvv e expiration. Enviar ao provedor por mecanismo tokenizado homologado. Dados do comprador que o contrato exigir seguem lista explícita, nunca o objeto inteiro do formulário. Chave idempotente é vinculada a usuário, operação e hash do corpo; mesma chave e corpo distinto = 409. Timeout desconhecido impede repetir cobrança sem reconciliação.
 
-## Casos e colaboração
+## Casos e colaboração — contrato alvo
+
+O incremento implementado usa category (código do catálogo), scopeAcknowledged e liberação de teste; ainda não recebe documentos nem verifica assinatura real. Rotas, payloads e limites atuais estão em [Casos e triagem](CASOS.md). A tabela abaixo inclui capacidades futuras.
 
 | Método / rota | Autorização | Entrada → saída |
 | --- | --- | --- |

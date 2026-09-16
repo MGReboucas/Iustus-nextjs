@@ -204,7 +204,7 @@ const tasks = parse(`
 15|Validar operação assistida e entregar runbook|16|53|RNF-010 RNF-011 RNF-018|Acompanhar fila, conciliação e alertas durante janela assistida; registrar responsável pela continuidade e pendências sem bloqueadores
 `).map((r,i)=>({id:prefix('DEV',i+1),phase:r[0],title:r[1],hours:Number(r[2]),dependencies:r[3]==='-'?[]:r[3].split(' ').map(n=>prefix('DEV',Number(n))),requirements:r[4].split(' '),acceptance:r[5],priority:'MUST',status:'Planejado'}));
 const config = {
- documentVersion:'1.4',
+ documentVersion:'1.5',
  architectureNote:'Arquitetura aprovada: Next.js + TypeScript no frontend, Python + Django REST Framework no backend, PostgreSQL e worker Python separado. DEV-059 a DEV-064 acrescentam 80h técnicas para integração, isolamento dos portais e operação; reserva recalculada por fase.',
  baselineDate:'2026-09-16', startDate:'2026-09-16', hoursPerDay:8, hoursPerWeek:40,
  developers:1, contingencyRate:0.20,

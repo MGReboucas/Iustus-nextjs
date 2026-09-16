@@ -2,7 +2,7 @@
 
 > Evidências locais de 16/09/2026. Implementação e testes locais não equivalem a homologação produtiva.
 
-A organização anterior preservou os 14 arquivos originais por SHA-256 e o histórico Git; foi publicada no commit 4b8d21f. Neste incremento, a tela de acesso foi substituída por integração TypeScript/Django, com cadastro, verificação, recuperação, sessões por portal, convites, MFA e painéis iniciais. PostgreSQL isolado do projeto está em operação local, com migrações aplicadas. O worker entrega e-mails de identidade em arquivos locais. Subdomínios reais, casos, documentos e pagamentos integrados continuam pendentes.
+A organização anterior preservou os 14 arquivos originais por SHA-256 e o histórico Git; foi publicada no commit 4b8d21f. Neste incremento, a tela de acesso foi substituída por integração TypeScript/Django, com cadastro, verificação, recuperação, sessões por portal, convites, MFA e painéis iniciais. PostgreSQL isolado do projeto está em operação local, com migrações aplicadas. O worker entrega e-mails de identidade em arquivos locais. Acesso foi publicado em e38ea41 com workflow GitHub aprovado. Casos agora têm persistência, atribuição, triagem, complemento e histórico; subdomínios reais, documentos e pagamentos integrados continuam pendentes.
 
 ## Inventário
 
@@ -20,9 +20,9 @@ A organização anterior preservou os 14 arquivos originais por SHA-256 e o hist
 | Referência estática | [index.html](../frontend/index.html) | Página HTML com Tailwind por CDN; não é a rota raiz do App Router |
 | Dependências | [package-lock.json](../frontend/package-lock.json) | Lockfile existente; ausência de auditoria de vulnerabilidades nesta entrega |
 
-Scripts da raiz incluem build, typecheck, test:e2e e verificações documentais. Django mantém identidade, auditoria e fila de e-mails no PostgreSQL. Os demais módulos de negócio são estrutura inicial. Instalação e operação dos três processos: [Acesso local](ACESSO.md). Ambientes, banco local, venv, dependências e artefatos ficam ignorados pelo Git.
+Scripts da raiz incluem build, typecheck, test:e2e e verificações documentais. Django mantém identidade, auditoria e fila de e-mails no PostgreSQL. Casos possuem modelos, migração, API e interface. Demais domínios permanecem como estrutura inicial. Instalação e operação dos três processos: [Acesso local](ACESSO.md). Ambientes, banco local, venv, dependências e artefatos ficam ignorados pelo Git.
 
-Verificação deste incremento: build e TypeScript; 22 testes no PostgreSQL, incluindo disputa pelo mesmo TOTP; três jornadas de navegador com Next.js 15.5.25. Apenas bancos isolados locais foram usados. Nenhum checkout, e-mail externo ou deploy foi acionado.
+Verificação deste incremento: build e TypeScript; 35 testes no PostgreSQL, incluindo disputa por TOTP e versão de caso; quatro jornadas de navegador com Next.js 15.5.25. Apenas bancos isolados locais foram usados. Nenhum checkout, e-mail externo ou deploy foi acionado.
 
 ## Achados prioritários
 
@@ -36,7 +36,7 @@ Verificação deste incremento: build e TypeScript; 22 testes no PostgreSQL, inc
 | AT-06 | Links de termos e privacidade apontam a âncoras sem seções correspondentes; depoimentos são modelos | Bloqueador de publicação: DEV-043 e revisão operacional |
 | AT-07 | Landing anuncia 1, 6 ou 12 parcelas; formulário filtra qualquer quantidade até 12 | Decisão comercial H-05 antes de DEV-013; alinhar oferta e opções efetivas |
 | AT-08 | Tratamento de XML por expressão regular, sem estratégia explícita de timeout, reconsulta e estados indeterminados | DEV-012/015 e DEV-046; confirmar contrato da API e testar erros |
-| AT-09 | Não há persistência ou controles para casos, documentos e permissões | DEV-005 a DEV-044; não anunciar funcionalidades como entregues |
+| AT-09 | Casos possuem persistência e isolamento por titular/atribuição; arquivos e gestão processual pendentes | Incremento parcial; ver [Casos](CASOS.md) e não anunciar o MVP completo |
 
 P0 significa prioridade antes de operação financeira real; não significa que um incidente já ocorreu. O levantamento não inspecionou logs de produção nem confirma exposição histórica.
 

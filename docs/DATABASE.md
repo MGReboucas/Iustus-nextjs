@@ -1,6 +1,6 @@
 # Modelo de dados
 
-> Modelo lógico para PostgreSQL/Django. Implementados e migrados localmente: User, ActionToken, MFADevice, RateLimitBucket, IdentityEmail, IdentityAudit e sessões Django. As entidades de negócio descritas abaixo são planejadas; nomes e campos futuros não equivalem ao schema físico atual.
+> Modelo lógico para PostgreSQL/Django. Implementados e migrados localmente: User, ActionToken, MFADevice, RateLimitBucket, IdentityEmail, IdentityAudit e sessões Django; Case, CaseEvent, InformationRequest e LocalCaseAccess compõem o incremento de triagem. O contrato físico atual de casos está em [Casos](CASOS.md). As demais entidades e extensões descritas abaixo são planejadas; nomes e campos futuros não equivalem ao schema físico atual.
 
 ## Convenções
 

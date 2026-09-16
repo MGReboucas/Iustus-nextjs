@@ -1,6 +1,6 @@
 # Arquitetura
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada e estrutura inicial criada. Dependências locais estão travadas; produção e fornecedores ainda dependem de validação.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada e estrutura inicial criada. Dependências locais estão travadas; produção e fornecedores ainda dependem de validação.
 
 ## Arquitetura encontrada
 
@@ -12,7 +12,7 @@ flowchart LR
     A --> P[PagBank via HTTP e XML]
 ```
 
-Landing e checkout originais permanecem em `frontend/`; o diagrama acima descreve o checkout legado. O acesso agora usa um proxy Next.js de mesma origem para a API Django, com portal validado, chave privada de encaminhamento, CSRF e sessões por portal. PostgreSQL persiste identidade e uma fila de e-mails processada por worker separado. Painéis iniciais consultam perfil autenticado. Autorização por caso, arquivos privados e pagamentos integrados continuam pendentes; AT-01 ainda exige correção do checkout.
+Landing e checkout originais permanecem em `frontend/`; o diagrama acima descreve o checkout legado. O acesso agora usa um proxy Next.js de mesma origem para a API Django, com portal validado, chave privada de encaminhamento, CSRF e sessões por portal. PostgreSQL persiste identidade e uma fila de e-mails processada por worker separado. Painéis consultam perfil, casos, triagem e complementos. Autorização por titular/atribuição é aplicada no backend; administrador recebe somente metadados. Arquivos privados e pagamentos integrados continuam pendentes; AT-01 ainda exige correção do checkout.
 
 ## Arquitetura aprovada para implementação
 
@@ -88,7 +88,7 @@ tests/e2e/                   # Jornadas Next.js + Django
 docs/                        # Contratos e decisões
 ```
 
-Esses diretórios existem. Identidade possui modelos, migrações e endpoints de acesso; demais domínios continuam como estrutura inicial. A fundação foi verificada com Python 3.14.3, Django 5.2.17, DRF 3.18.1 e Node 24.14.1. O worker atual processa somente e-mails de identidade. Proxy produtivo, OpenAPI e settings de produção ainda serão implementados. Instruções e limites: [Acesso local](ACESSO.md).
+Esses diretórios existem. Identidade e casos possuem modelos, migrações e endpoints. As alterações de caso/histórico compartilham transação, lock e versão; demais domínios continuam como estrutura inicial. A fundação foi verificada com Python 3.14.3, Django 5.2.17, DRF 3.18.1 e Node 24.14.1. O worker atual processa somente e-mails de identidade. Proxy produtivo, OpenAPI e settings de produção ainda serão implementados. Instruções e limites: [Acesso local](ACESSO.md).
 
 DRF define os endpoints e serializers; os serviços Python concentram regras e transações. Permissões por caso são próprias da Iustus: filtrar listagens e validar criação, leitura e alteração explicitamente, inclusive em caminhos administrativos. As permissões genéricas não resolvem isso automaticamente. [Permissões DRF](https://www.django-rest-framework.org/api-guide/permissions/).
 

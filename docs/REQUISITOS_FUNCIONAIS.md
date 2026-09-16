@@ -1,6 +1,6 @@
 # Requisitos funcionais
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 Catálogo de 43 requisitos do MVP proposto. MUST significa necessário para o escopo desta baseline, e não funcionalidade já implementada. A evidência atual está em [Estado atual](ESTADO_ATUAL.md). Os critérios abaixo devem ser testados; as evidências do primeiro incremento de acesso estão em [Acesso local](ACESSO.md), sem aceite integral do MVP.
 

@@ -6,7 +6,7 @@
 
 Cadastro com senha validada pelo Django, confirmação de e-mail e reenvio; login/logout e recuperação de senha; revogação de sessões após reset; convite de advogado pelo administrador com MFA; TOTP e oito códigos de recuperação de uso único; painéis iniciais com perfil real e permissões por portal. Há fila durável de e-mails de identidade com conteúdo criptografado, lease e retry. Localmente, mensagens viram arquivos, sem envio externo.
 
-Gestão de casos/documentos, assinatura, migração financeira, edição de perfil, troca de dispositivo MFA e reemissão de códigos ainda não estão implementadas. Login Google foi removido da tela por não ter integração.
+Casos e triagem possuem um incremento local descrito em [Casos](CASOS.md). Documentos, assinatura, migração financeira, edição de perfil, troca de dispositivo MFA e reemissão de códigos ainda não estão implementados. Login Google foi removido da tela por não ter integração.
 
 ## Preparar
 
@@ -82,7 +82,7 @@ Dentro de backend:
 .\.venv\Scripts\python.exe manage.py makemigrations --check --dry-run --settings=config.settings.test
 ```
 
-22 testes usam banco separado, incluindo consumo concorrente do mesmo TOTP. A alternativa `config.settings.test` usa SQLite em memória e pula o teste de locks reais. O usuário PostgreSQL de testes precisa poder criar banco; isso não é recomendação de privilégio para produção.
+35 testes usam banco separado, incluindo consumo concorrente do mesmo TOTP e edição simultânea de caso. A alternativa `config.settings.test` usa SQLite em memória e pula os dois testes de locks reais. O usuário PostgreSQL de testes precisa poder criar banco; isso não é recomendação de privilégio para produção.
 
 Para navegador, parar os servidores das portas 3000/8000 e executar na raiz:
 
@@ -93,7 +93,7 @@ $env:PLAYWRIGHT_CHANNEL = 'msedge'
 npm.cmd run test:e2e
 ```
 
-O runner inicia/encerra seus servidores e usa somente `iustus_e2e`. As três jornadas cobrem cliente, equipe e isolamento. Fixtures só aceitam endereços sintéticos `e2e-*@example.test`. No Linux/CI, instalar Chromium pelo Playwright e omitir PLAYWRIGHT_CHANNEL. O workflow inclui PostgreSQL e navegador; execução local não comprova aprovação remota no GitHub.
+O runner inicia/encerra seus servidores e usa somente `iustus_e2e`. As quatro jornadas cobrem cliente, equipe, isolamento e o fluxo de casos/triagem. Fixtures só aceitam endereços sintéticos `e2e-*@example.test`. No Linux/CI, instalar Chromium pelo Playwright e omitir PLAYWRIGHT_CHANNEL. O workflow inclui PostgreSQL e navegador; execução local não comprova aprovação remota no GitHub.
 
 ## Antes de publicar
 

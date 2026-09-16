@@ -2,7 +2,7 @@
 
 Plataforma por assinatura para solicitar, acompanhar e receber defesas jurídicas online. A jornada pretendida reúne contratação, envio de casos e documentos, procuração, acompanhamento pelo cliente e preparação da defesa por advogado designado.
 
-**Estado em 16/09/2026:** primeiro incremento de acesso implementado: cadastro, confirmação de e-mail, login, recuperação, convite de advogado, MFA e painéis iniciais integrados ao Django/PostgreSQL. Há worker para e-mails de identidade, gravados localmente em arquivos. Gestão jurídica, assinatura e migração financeira continuam pendentes. Ambiente exclusivo de testes com dados fictícios; não liberado para produção.
+**Estado em 16/09/2026:** acesso de cliente/equipe com MFA publicado no GitHub (e38ea41, CI aprovado). O incremento local de casos implementa rascunho, submissão de teste, atribuição, transferência, triagem, complemento textual e histórico. PostgreSQL, sessões e permissões são verificados no servidor. Arquivos privados, assinatura, integração financeira e operação produtiva permanecem pendentes.
 
 [Documentação completa](docs/README.md) · [Estado atual](docs/ESTADO_ATUAL.md) · [MVP](docs/MVP.md) · [Backlog](docs/BACKLOG.md) · [Cronograma](docs/CRONOGRAMA.md)
 
@@ -24,9 +24,10 @@ A landing apresenta proposta de valor, jornada em três etapas, benefícios, pla
 | Checkout PagBank | SDK e rotas existentes; correções de segurança, conciliação e homologação pendentes |
 | Login e cadastro | Cadastro, confirmação, login, recuperação e sessões persistentes testados localmente |
 | Fundação técnica | Next.js/TypeScript, Django/DRF e PostgreSQL; MFA, isolamento de portais e worker de identidade |
-| Assinatura, casos e documentos | Planejados; sem módulos persistentes implementados |
-| Dashboards e gestão jurídica | Painéis iniciais com perfil; casos, documentos e filas jurídicas pendentes |
-| Documentação do MVP | Revisão 1.4; acesso implementado e validação operacional pendente |
+| Casos e triagem | Rascunho, atribuição, triagem e complemento persistidos; submissão restrita a liberação de teste |
+| Assinatura e documentos | Integração financeira e arquivos privados pendentes |
+| Dashboards e gestão jurídica | Perfil, lista de casos e triagem; documentos e etapas processuais pendentes |
+| Documentação do MVP | Revisão 1.5; acesso e triagem implementados e validação operacional pendente |
 | Produção | Nenhuma evidência de homologação ou implantação verificada nesta etapa |
 
 O levantamento identificou envio desnecessário de campos de cartão ao backend e exibição de aprovação sem confirmação de estado financeiro. Correções estão priorizadas em [Estado atual](docs/ESTADO_ATUAL.md) e [Segurança](docs/SEGURANCA.md). A existência do checkout não significa que esteja pronto para cobrança real.
@@ -75,6 +76,8 @@ Calendário provisório de segunda a sexta-feira; feriados, férias e ausências
 <!-- PLANEJAMENTO:FIM -->
 
 ## Executar localmente
+
+O [guia de casos e triagem](docs/CASOS.md) explica a liberação local, distribuição de casos e revisão pelo advogado.
 
 Siga o [guia de acesso local](docs/ACESSO.md) para preparar PostgreSQL, configurar os dois portais, iniciar o worker e criar o primeiro administrador. Os comandos abaixo iniciam somente o frontend.
 
@@ -164,6 +167,6 @@ A fonte única de requisitos e estimativas está em [dados.cjs](docs/planejament
 
 ## Próximo passo e limite desta etapa
 
-**Próximo incremento:** casos e triagem, após consolidar as regras de atendimento e a integração com a elegibilidade da assinatura. Antes de cobrança ou publicação, corrigir o checkout, homologar e-mail, domínios, segurança e políticas jurídicas. As estimativas continuam sendo a baseline integral de 1696h, sem desconto automático do trabalho realizado.
+**Próximo incremento:** documentos privados vinculados ao caso, com autorização, quarentena e validação de arquivos. Antes de operação comercial, integrar elegibilidade à assinatura, corrigir o checkout e homologar infraestrutura/políticas. A estimativa de 1696h continua sendo a baseline integral, sem desconto automático do trabalho realizado.
 
 A comunicação jurídica, critérios de atendimento, modelos, condições comerciais, retenção de dados e fluxos de contratação devem ser revisados pelos responsáveis da operação antes da publicação.

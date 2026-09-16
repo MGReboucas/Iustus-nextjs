@@ -168,9 +168,9 @@ Antes de cada commit: revisar diff, remover segredos/dados reais, executar verif
 ${table(['Tarefa','Título proposto','Verificação'],tasks.map(t=>[t.id,`${t.phase==='0'?'docs':t.phase==='13'||t.phase==='14'?'test':t.phase==='15'?'chore':'feat'}(${t.phase==='2A'?'billing':({0:'planning',1:'foundation',2:'auth',3:'cases',4:'documents',5:'client',6:'lawyer',7:'mandates',8:'timeline',9:'notifications',10:'legal',11:'admin',12:'security',13:'quality',14:'acceptance',15:'release'})[t.phase]}): ${t.title.charAt(0).toLowerCase()+t.title.slice(1)}`,`Critério de ${t.id} e Definition of Done`]))}
 `);
 doc('RESUMO_EXECUTIVO.md','Resumo executivo do planejamento',`
-**Situação:** primeiro incremento de acesso integrado e testado localmente. Baseline e hipóteses operacionais aguardam validação. As horas abaixo representam a estimativa integral, não o saldo restante.
+**Situação:** acesso e incremento local de casos/triagem implementados. Baseline e hipóteses operacionais aguardam validação. As horas abaixo representam a estimativa integral, não o saldo restante.
 
-Stack atual: Next.js 15.5.25, React 19.1.9 e TypeScript incremental; Django 5.2.17 e DRF 3.18.1 com PostgreSQL, cadastro, sessões por portal, MFA e worker de e-mails de identidade. PagBank permanece no legado Next.js; casos e documentos ainda não foram implementados.
+Stack atual: Next.js 15.5.25, React 19.1.9 e TypeScript incremental; Django 5.2.17 e DRF 3.18.1 com PostgreSQL, cadastro, sessões por portal, MFA e worker de e-mails de identidade. PagBank permanece no legado Next.js; casos possuem rascunho, atribuição e triagem. Arquivos e elegibilidade financeira continuam pendentes.
 
 ${config.architectureNote} A integração dos portais foi testada localmente. Contrato OpenAPI, subdomínios reais e operação produtiva ainda não foram concluídos.
 
@@ -184,7 +184,7 @@ ${summary}
 
 ${config.calendarNote}
 
-**Próxima tarefa recomendada:** consolidar regras e elegibilidade para implementar casos e triagem. Antes de cobrança/publicação, corrigir o checkout e homologar dependências produtivas. Os testes locais de acesso não significam aceite integral dos requisitos nem aprovação operacional.
+**Próxima tarefa recomendada:** implementar documentos privados, mantendo permissões por caso, quarentena e revisão. Antes de cobrança/publicação, corrigir o checkout e homologar dependências produtivas. Os testes locais de acesso não significam aceite integral dos requisitos nem aprovação operacional.
 `);
 // Sincronizar apenas bloco gerado do README; conteúdo editorial permanece intacto.
 const readmePath = path.join(root,'README.md');
@@ -207,4 +207,4 @@ console.log(`RF: ${rf.length}; RNF: ${rnf.length}; RN: ${rules.length}; US: ${rf
 console.log(`Horas técnicas: ${technical}; contingência: ${contingency}; total: ${total}; dias: ${total/8}; semanas: ${fmt(total/40)}`);
 console.log(`MVP: ${br(m('M8').end)}; homologação: ${br(m('M9').end)}; produção: ${br(m('M10').end)}`);
 console.log(config.calendarNote);
-console.log('Próxima tarefa: consolidar regras/elegibilidade para casos e triagem. Acesso testado localmente; operação produtiva e demais módulos pendentes.');
+console.log('Próxima tarefa: documentos privados com autorização e quarentena. Casos/triagem locais; elegibilidade financeira e produção pendentes.');

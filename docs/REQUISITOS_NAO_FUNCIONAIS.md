@@ -1,6 +1,6 @@
 # Requisitos não funcionais
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 18 metas propostas, ainda não medidas nem certificadas. Cada requisito tem tarefa associada em [Rastreabilidade](RASTREABILIDADE.md). Desempenho, disponibilidade e recuperação dependem da infraestrutura contratada e da capacidade operacional; não são promessas comerciais.
 

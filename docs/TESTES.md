@@ -1,6 +1,6 @@
 # Estratégia de testes e homologação
 
-> Plano de validação do produto. Este incremento executou 22 testes Django no PostgreSQL e três jornadas de navegador para identidade. Os cenários de negócio ainda não implementados continuam como roteiro futuro.
+> Plano de validação do produto. Este incremento executou 35 testes Django no PostgreSQL e quatro jornadas de navegador para identidade e casos. Os cenários de negócio ainda não implementados continuam como roteiro futuro.
 
 ## Camadas
 
@@ -13,7 +13,7 @@
 | Não funcional | Acessibilidade, carga, recuperação, redaction e concorrência | Durante módulos e fase 13 |
 | Aceite humano | Adequação do fluxo jurídico, textos, modelos e operação | Fase 14, com responsáveis designados |
 
-A suíte atual cobre cadastro/verificação, CSRF anônimo, sessões e revogação, isolamento de portal, convites, MFA/replay, recuperação de fator, rate limit e retry do worker. O teste concorrente de TOTP usa locks reais no PostgreSQL. Três jornadas Playwright verificam cliente, equipe e isolamento. Comandos e ambiente isolado estão em [Acesso local](ACESSO.md). SQLite em memória pula o teste de concorrência; não substitui PostgreSQL. OpenAPI, carga e os demais fluxos do produto permanecem pendentes.
+A suíte atual cobre cadastro/verificação, CSRF anônimo, sessões e revogação, isolamento de portal, convites, MFA/replay, recuperação de fator, rate limit e retry do worker. O teste concorrente de TOTP usa locks reais no PostgreSQL. Quatro jornadas Playwright verificam cliente, equipe, isolamento e casos/triagem. Casos acrescentam 13 testes de autorização, idempotência, estados, complementos, paginação e concorrência. Comandos e ambiente isolado estão em [Acesso local](ACESSO.md). SQLite em memória pula os dois testes de concorrência; não substitui PostgreSQL. OpenAPI, carga e os demais fluxos do produto permanecem pendentes.
 
 ## Cenários críticos de aceitação
 

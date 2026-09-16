@@ -7,7 +7,10 @@ const routes = new Set([
   "auth/csrf", "auth/register", "auth/verify", "auth/resend", "auth/login",
   "auth/logout", "auth/recovery", "auth/reset", "auth/mfa/enroll", "auth/mfa/verify",
   "auth/invitations/accept", "admin/invitations", "me", "dashboard/client", "dashboard/team",
+  "cases", "cases/catalog", "cases/lawyers",
 ]);
+const uuid = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}";
+const caseRoute = new RegExp(`^cases/${uuid}(?:/(?:submit|assignment|transitions|requests|timeline)|/requests/${uuid}/(?:response|resolve))?$`, "i");
 
 function failure(code: string, message: string, status: number) {
   return Response.json({ error: { code, message, fields: {} } }, {
@@ -17,7 +20,7 @@ function failure(code: string, message: string, status: number) {
 
 async function forward(request: NextRequest, context: { params: Promise<{ path: string[] }> }) {
   const path = (await context.params).path.join("/");
-  if (!routes.has(path)) return failure("NOT_FOUND", "Recurso não encontrado.", 404);
+  if (!routes.has(path) && !caseRoute.test(path)) return failure("NOT_FOUND", "Recurso não encontrado.", 404);
   const origin = process.env.DJANGO_API_ORIGIN;
   const key = process.env.IUSTUS_PROXY_SECRET;
   const portals = [process.env.IUSTUS_CLIENT_ORIGIN, process.env.IUSTUS_TEAM_ORIGIN].filter(Boolean) as string[];
@@ -28,7 +31,7 @@ async function forward(request: NextRequest, context: { params: Promise<{ path: 
   const headers = new Headers({ "Accept": "application/json", "X-Iustus-Portal-Host": host!, "X-Iustus-Proxy-Key": key });
   // Somente os headers abaixo atravessam a fronteira. Forwarded, X-Forwarded-* e
   // X-Iustus-* do navegador são descartados; cookies continuam vinculados ao host.
-  for (const name of ["cookie", "origin", "referer", "x-csrftoken", "content-type"]) {
+  for (const name of ["cookie", "origin", "referer", "x-csrftoken", "content-type", "idempotency-key"]) {
     const value = request.headers.get(name);
     if (value) headers.set(name, value);
   }
@@ -52,7 +55,12 @@ async function forward(request: NextRequest, context: { params: Promise<{ path: 
     for (const chunk of chunks) { body.set(chunk, offset); offset += chunk.length; }
   }
   try {
-    const upstream = await fetch(new URL(`/api/v1/${path}`, origin), {
+    const url = new URL(`/api/v1/${path}`, origin);
+    for (const name of ["cursor", "state"]) {
+      const value = request.nextUrl.searchParams.get(name);
+      if (value) url.searchParams.set(name, value);
+    }
+    const upstream = await fetch(url, {
       method: request.method, headers, body: body as BodyInit | undefined,
       cache: "no-store", redirect: "manual", signal: AbortSignal.timeout(15000),
     });
@@ -73,3 +81,4 @@ async function forward(request: NextRequest, context: { params: Promise<{ path: 
 
 export const GET = forward;
 export const POST = forward;
+export const PATCH = forward;

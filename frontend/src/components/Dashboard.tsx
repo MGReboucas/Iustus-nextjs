@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { api, ApiError, Portal, Profile } from "@/lib/api/client";
 import "./dashboard.css";
+import CasesWorkspace from "./CasesWorkspace";
 
 export default function Dashboard({ portal }: { portal: Portal }) {
   const [user, setUser] = useState<Profile>();
@@ -35,9 +36,9 @@ export default function Dashboard({ portal }: { portal: Portal }) {
       <section className="dashboard-welcome"><p>ACESSO CONFIRMADO</p><h1>Olá, {user.name || "bem-vindo"}.</h1><p>{portal === "team" ? "Sua sessão profissional está protegida por segundo fator." : "Seu cadastro e e-mail estão confirmados."}</p></section>
       <div className="dashboard-grid">
         <section className="dashboard-card"><h2>Seu perfil</h2><dl><dt>Nome</dt><dd>{user.name}</dd><dt>E-mail</dt><dd>{user.email}</dd><dt>Perfil</dt><dd>{{ CLIENT: "Cliente", LAWYER: "Advogado", ADMIN: "Administrador" }[user.role]}</dd></dl></section>
-        <section className="dashboard-card"><h2>Atendimentos</h2><p>A gestão de casos e documentos será disponibilizada nesta área em uma próxima etapa.</p><p className="dashboard-note">Ambiente de testes. Não envie documentos reais.</p></section>
         {portal === "team" && user.role === "ADMIN" && <section className="dashboard-card"><h2>Convidar advogado</h2><p>O profissional deverá aceitar o convite e configurar o autenticador antes de acessar o painel.</p><form onSubmit={invite}><label>E-mail do profissional<input required type="email" maxLength={254} value={email} onChange={e => setEmail(e.target.value)} /></label><button disabled={busy}>Enviar convite</button></form>{message && <p role="status">{message}</p>}</section>}
       </div>
+      <CasesWorkspace user={user} />
     </>}
   </main>;
 }

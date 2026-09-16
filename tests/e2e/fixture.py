@@ -36,9 +36,16 @@ else:
     email = sys.argv[2]
     if not re.fullmatch(r"e2e-[a-z0-9-]+@example\.test", email):
         raise SystemExit("Fixture aceita somente endereços sintéticos e2e-*@example.test.")
-    if action == "admin":
-        user = User.objects.create_user(email, "Synthetic-Browser-Passphrase-938!", first_name="Admin Teste", role=User.Role.ADMIN, email_verified_at=timezone.now())
+    if action in ("admin", "lawyer", "client"):
+        names = {"admin": "Admin Teste", "lawyer": "Advogado Teste", "client": "Cliente Teste"}
+        user = User.objects.create_user(email, "Synthetic-Browser-Passphrase-938!", first_name=names[action], role=action.upper(), email_verified_at=timezone.now())
         print(json.dumps({"id": str(user.pk)}))
+    elif action == "case-grant":
+        from datetime import timedelta
+        from apps.cases.models import LocalCaseAccess
+        user = User.objects.get(email=email, role="CLIENT")
+        LocalCaseAccess.objects.update_or_create(user=user, defaults={"expires_at": timezone.now() + timedelta(days=1), "reason": "Jornada sintética de navegador"})
+        print(json.dumps({"granted": True}))
     elif action == "mail":
         item = IdentityEmail.objects.filter(recipient=email).latest("created_at")
         print(json.dumps({"body": decrypt(item.encrypted_body)}))

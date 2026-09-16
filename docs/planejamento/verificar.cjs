@@ -12,7 +12,7 @@ const files=['README.md',...fs.readdirSync(path.join(root,'docs')).filter(f=>f.e
 function collectGuides(directory) {
  for(const entry of fs.readdirSync(path.join(root,directory),{withFileTypes:true})) {
   if(entry.isSymbolicLink()) continue;
-  if(['node_modules','.next','.venv','__pycache__','build','dist'].includes(entry.name)||entry.name.endsWith('.egg-info')) continue;
+  if(['node_modules','.next','.venv','__pycache__','build','dist','test-results','playwright-report'].includes(entry.name)||entry.name.endsWith('.egg-info')) continue;
   const relative=directory+'/'+entry.name;
   if(entry.isDirectory()) collectGuides(relative);
   else if(entry.name.endsWith('.md')) files.push(relative);

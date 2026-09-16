@@ -1,6 +1,6 @@
 # Regras de negócio
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 25 regras. As regras confirmadas indicam evidência no produto atual ou decisão explícita do usuário, conforme a situação registrada; hipóteses e decisões propostas precisam de validação conforme [Decisões](DECISOES.md). Não representam aprovação jurídica do serviço.
 

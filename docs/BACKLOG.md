@@ -1,6 +1,6 @@
 # Backlog executável
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 64 tarefas, 1360 horas técnicas. Toda tarefa tem prioridade MUST nesta baseline; funcionalidades posteriores estão explicitamente excluídas em [MVP](MVP.md). Situação: planejadas. A documentação inicial foi produzida; a fase 0 estima a conferência e validação humana, não contabiliza retroativamente o tempo desta sessão.
 

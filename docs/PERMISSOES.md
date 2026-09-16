@@ -1,6 +1,6 @@
 # Permissões e isolamento
 
-> Proposta para o MVP. Toda autorização é verificada no servidor por ação e recurso.
+> Matriz alvo do MVP. Casos/triagem implementam propriedade, atribuição e metadados administrativos conforme [Casos](CASOS.md). Acúmulo de papéis e concessões excepcionais ainda não foram implementados. Toda autorização é verificada no servidor por ação e recurso.
 
 ## Matriz
 

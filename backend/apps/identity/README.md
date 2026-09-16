@@ -4,4 +4,4 @@ User UUID com papel do produto CLIENT/LAWYER/ADMIN, tokens de ação com hash, M
 
 Serviços e views implementam os fluxos de acesso com CSRF, validação estrita de campos e sessão vinculada ao portal. Convites criam somente LAWYER; bootstrap_admin cria o primeiro ADMIN por operação local e exige MFA no login. Papéis do produto não são concedidos por is_staff/is_superuser.
 
-[Operação e testes](../../../docs/ACESSO.md). Gestão jurídica e autorização por caso continuam pendentes.
+[Operação e testes](../../../docs/ACESSO.md). O módulo cases aplica autorização por titular/atribuição. Gestão processual continua pendente.

@@ -2,6 +2,7 @@
 from .base import *  # noqa: F403
 from .base import BASE_DIR, env
 
+CASE_LOCAL_TEST_ACCESS = True
 env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 IDENTITY_ENCRYPTION_KEY = env("IDENTITY_ENCRYPTION_KEY")

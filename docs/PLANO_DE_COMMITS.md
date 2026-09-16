@@ -1,6 +1,6 @@
 # Plano de commits
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 Cada tarefa pode exigir mais de um commit. Os títulos abaixo definem a unidade de entrega; separar migração, domínio e interface quando cada parte puder ser verificada independentemente. Nunca juntar tarefas não relacionadas nem deixar migração incompatível com o código da mesma entrega.
 

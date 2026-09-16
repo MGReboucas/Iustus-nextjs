@@ -1,10 +1,10 @@
 # Resumo executivo do planejamento
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
-**Situação:** primeiro incremento de acesso integrado e testado localmente. Baseline e hipóteses operacionais aguardam validação. As horas abaixo representam a estimativa integral, não o saldo restante.
+**Situação:** acesso e incremento local de casos/triagem implementados. Baseline e hipóteses operacionais aguardam validação. As horas abaixo representam a estimativa integral, não o saldo restante.
 
-Stack atual: Next.js 15.5.25, React 19.1.9 e TypeScript incremental; Django 5.2.17 e DRF 3.18.1 com PostgreSQL, cadastro, sessões por portal, MFA e worker de e-mails de identidade. PagBank permanece no legado Next.js; casos e documentos ainda não foram implementados.
+Stack atual: Next.js 15.5.25, React 19.1.9 e TypeScript incremental; Django 5.2.17 e DRF 3.18.1 com PostgreSQL, cadastro, sessões por portal, MFA e worker de e-mails de identidade. PagBank permanece no legado Next.js; casos possuem rascunho, atribuição e triagem. Arquivos e elegibilidade financeira continuam pendentes.
 
 Arquitetura aprovada: Next.js + TypeScript no frontend, Python + Django REST Framework no backend, PostgreSQL e worker Python separado. DEV-059 a DEV-064 acrescentam 80h técnicas para integração, isolamento dos portais e operação; reserva recalculada por fase. A integração dos portais foi testada localmente. Contrato OpenAPI, subdomínios reais e operação produtiva ainda não foram concluídos.
 
@@ -32,4 +32,4 @@ Arquitetura aprovada: Next.js + TypeScript no frontend, Python + Django REST Fra
 
 Calendário provisório de segunda a sexta-feira; feriados, férias e ausências ainda não descontados. As datas dependem da confirmação do calendário e das dependências externas.
 
-**Próxima tarefa recomendada:** consolidar regras e elegibilidade para implementar casos e triagem. Antes de cobrança/publicação, corrigir o checkout e homologar dependências produtivas. Os testes locais de acesso não significam aceite integral dos requisitos nem aprovação operacional.
+**Próxima tarefa recomendada:** implementar documentos privados, mantendo permissões por caso, quarentena e revisão. Antes de cobrança/publicação, corrigir o checkout e homologar dependências produtivas. Os testes locais de acesso não significam aceite integral dos requisitos nem aprovação operacional.

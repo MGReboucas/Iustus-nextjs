@@ -1,6 +1,6 @@
 # Documentação da Iustus
 
-> Revisão 1.4 · Levantamento: 16/09/2026 · Responsável técnico: desenvolvedor único. Primeiro incremento de acesso integrado e testado localmente; validação das regras operacionais e contratuais ainda pendente.
+> Revisão 1.5 · Levantamento: 16/09/2026 · Responsável técnico: desenvolvedor único. Acesso e incremento de casos/triagem integrados e testados localmente; validação das regras operacionais e contratuais ainda pendente.
 
 Esta documentação descreve o código encontrado e propõe o MVP da plataforma de defesa jurídica por assinatura. Os documentos de planejamento não certificam operação em produção. A implantação, o aceite humano e as verificações de segurança ainda precisam ocorrer.
 
@@ -17,6 +17,7 @@ Esta documentação descreve o código encontrado e propõe o MVP da plataforma 
 | Documento | Finalidade |
 | --- | --- |
 | [Visão geral](VISAO_GERAL.md) | Objetivo, usuários, jornada e indicadores |
+| [Casos e triagem](CASOS.md) | Rascunho, distribuição, complemento, decisão e liberação local de testes |
 | [Acesso local](ACESSO.md) | Instalação, cliente, equipe, MFA, worker e testes do incremento implementado |
 | [Estado atual](ESTADO_ATUAL.md) | Inventário verificável e lacunas |
 | [MVP](MVP.md) | Escopo incluído, excluído e critérios de lançamento |

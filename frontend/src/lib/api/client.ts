@@ -8,7 +8,7 @@ export class ApiError extends Error {
   constructor(public code: string, message: string) { super(message); }
 }
 
-export async function api<T>(path: string, body?: object): Promise<T> {
+export async function api<T>(path: string, body?: object, options?: { method?: "POST" | "PATCH"; idempotencyKey?: string }): Promise<T> {
   let csrfToken: string | undefined;
   if (body !== undefined) {
     // Buscar por mutação evita reutilizar token anterior ao login/rotação de sessão.
@@ -18,8 +18,8 @@ export async function api<T>(path: string, body?: object): Promise<T> {
   let response: Response;
   try {
     response = await fetch(`/api/v1/${path}`, {
-      method: body === undefined ? "GET" : "POST", credentials: "same-origin", cache: "no-store",
-      headers: body === undefined ? undefined : { "Content-Type": "application/json", "X-CSRFToken": csrfToken! },
+      method: body === undefined ? "GET" : options?.method || "POST", credentials: "same-origin", cache: "no-store",
+      headers: body === undefined ? undefined : { "Content-Type": "application/json", "X-CSRFToken": csrfToken!, ...(options?.idempotencyKey ? { "Idempotency-Key": options.idempotencyKey } : {}) },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch { throw new ApiError("NETWORK_ERROR", "Não foi possível conectar. Tente novamente."); }

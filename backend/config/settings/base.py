@@ -76,3 +76,4 @@ IDENTITY_SESSION_SECONDS = {"client": 86400, "team": 43200}
 DEFAULT_FROM_EMAIL = "Iustus <no-reply@localhost>"
 # Sem settings produtivos: políticas locais são explicitamente de teste.
 REGISTRATION_POLICY_VERSION = "development-v1"
+CASE_LOCAL_TEST_ACCESS = False

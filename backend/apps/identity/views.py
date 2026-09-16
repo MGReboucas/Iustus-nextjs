@@ -221,10 +221,10 @@ class LogoutView(IdentityView):
 class ClientDashboardView(IdentityView):
     def get(self, request):
         self.require_portal(request, "client")
-        return Response({"user": profile(request.user), "portal": "client", "caseManagementAvailable": False})
+        return Response({"user": profile(request.user), "portal": "client", "caseManagementAvailable": True})
 
 
 class TeamDashboardView(IdentityView):
     def get(self, request):
         self.require_portal(request, "team")
-        return Response({"user": profile(request.user), "portal": "team", "caseManagementAvailable": False})
+        return Response({"user": profile(request.user), "portal": "team", "caseManagementAvailable": True})

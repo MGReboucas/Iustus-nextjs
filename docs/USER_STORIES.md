@@ -1,6 +1,6 @@
 # User stories
 
-> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.5 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 43 histórias correspondentes aos requisitos funcionais. Cada história herda a prioridade MUST do requisito e possui aceite observável. Para fluxos combinados, consultar [Casos de uso](CASOS_DE_USO.md).
 
