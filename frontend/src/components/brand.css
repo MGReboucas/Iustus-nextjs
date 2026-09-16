@@ -5,8 +5,8 @@
 .footer-inner .logo .iustus-brand{width:64px;height:64px}.footer-inner .logo{width:auto}
 .window-brand .iustus-brand{width:46px;height:46px}.window-brand b{font:700 13px/1.5 Arial,sans-serif;letter-spacing:.1em;color:#f4f5f7}
 .final-cta .iustus-brand{width:96px;height:96px}
-.checkout-header .checkout-container{height:100px}.checkout-logo .iustus-brand{width:76px;height:76px}
+.checkout-logo .iustus-brand{width:76px;height:76px}
 .dashboard header .dashboard-brand{display:flex;align-items:center;gap:16px}.dashboard-brand .iustus-brand{width:80px;height:80px}.dashboard header .dashboard-brand span{margin:0;line-height:1.5}
 .auth-card .auth-brand-title{margin:0;line-height:normal;background:none;color:inherit;letter-spacing:normal}.auth-brand-title .iustus-brand{width:136px;height:136px;margin:0 auto 18px}
 .auth-page{padding-top:76px;padding-bottom:36px}.auth-back{z-index:2}.auth-card{margin:auto}
-@media(max-width:600px){.nav .logo .iustus-brand{width:68px;height:68px}.nav{min-height:92px}.brand-descriptor{font-size:8px;letter-spacing:.12em}.checkout-logo .brand-descriptor{display:none}.checkout-header .checkout-container{height:88px}.checkout-logo .iustus-brand{width:68px;height:68px}.dashboard header .dashboard-brand{gap:10px}.dashboard-brand .iustus-brand{width:68px;height:68px}.dashboard header .dashboard-brand span{font-size:11px;max-width:95px}.dashboard header>button{padding:10px 12px;white-space:nowrap;font-size:12px}.auth-brand-title .iustus-brand{width:120px;height:120px}.footer-inner .logo{width:100%}}
+@media(max-width:600px){.nav .logo .iustus-brand{width:68px;height:68px}.nav{min-height:92px}.brand-descriptor{font-size:8px;letter-spacing:.12em}.checkout-logo .brand-descriptor{display:none}.checkout-logo .iustus-brand{width:68px;height:68px}.dashboard header .dashboard-brand{gap:10px}.dashboard-brand .iustus-brand{width:68px;height:68px}.dashboard header .dashboard-brand span{font-size:11px;max-width:95px}.dashboard header>button{padding:10px 12px;white-space:nowrap;font-size:12px}.auth-brand-title .iustus-brand{width:120px;height:120px}.footer-inner .logo{width:100%}}
