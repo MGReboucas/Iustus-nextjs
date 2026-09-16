@@ -3,13 +3,13 @@ import '@/components/brand.css';
 
 export const metadata = {
   title: {
-    default: 'ÍUSTUS | Sua defesa jurídica, sem complicação',
+    default: 'ÍUSTUS | Atendimento online, sem complicação',
     template: '%s | ÍUSTUS',
   },
-  description: 'Plataforma online de defesas jurídicas por R$ 547 ao ano.',
-  keywords: ['defesa jurídica', 'assinatura jurídica', 'dashboard jurídico', 'procuração online'],
+  description: 'Plataforma online para acompanhar seus casos por R$ 547 ao ano.',
+  keywords: ['assinatura jurídica', 'dashboard jurídico', 'procuração online'],
   openGraph: {
-    title: 'ÍUSTUS | Defesa jurídica online por assinatura',
+    title: 'ÍUSTUS | Atendimento online por assinatura',
     description: 'Envie seus casos, documentos e procuração. Acompanhe tudo em um só dashboard.',
     locale: 'pt_BR',
     type: 'website',
