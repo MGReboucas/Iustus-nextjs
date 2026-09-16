@@ -2,27 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Brand from '@/components/Brand';
 import './testimonials.css';
 import './home-nav.css';
 
 function Mark({ small = false }) {
-  return (
-    <div className={`mark ${small ? 'mark-small' : ''}`} aria-hidden="true">
-      <svg viewBox="0 0 100 100" fill="none">
-        <rect x="25" y="82" width="50" height="7" rx="2" fill="#2c477d" />
-        <rect x="29" y="75" width="42" height="7" rx="1.5" fill="#1f345e" />
-        <rect x="35" y="28" width="8" height="47" rx="1" fill="#2c477d" />
-        <rect x="46" y="28" width="8" height="47" rx="1" fill="#3a5a9c" />
-        <rect x="57" y="28" width="8" height="47" rx="1" fill="#2c477d" />
-        <path d="M25 24L75 24L70 31L30 31Z" fill="#1f345e" />
-        <path d="M50 12V32" stroke="#e5b869" strokeWidth="3" strokeLinecap="round" />
-        <path d="M30 20H70" stroke="#e5b869" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M30 20L23 29M30 20L37 29M70 20L63 29M70 20L77 29" stroke="#e5b869" strokeWidth="1.5" />
-        <path d="M22 29C22 35 38 35 38 29Z" fill="#e5b869" />
-        <path d="M62 29C62 35 78 35 78 29Z" fill="#e5b869" />
-      </svg>
-    </div>
-  );
+  return <Brand size={small ? 48 : 96} decorative />;
 }
 
 const Arrow = () => <span className="arrow" aria-hidden="true">→</span>;
@@ -30,7 +15,7 @@ const Arrow = () => <span className="arrow" aria-hidden="true">→</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
 
 function Logo() {
-  return <a className="logo" href="#inicio" aria-label="Iustus, início"><Mark small /><span><strong>IUSTUS</strong><em>DEFESA JURÍDICA</em></span></a>;
+  return <a className="logo" href="#inicio" aria-label="Íustus, início"><Brand decorative /><span className="brand-descriptor">DEFESA<br />JURÍDICA</span></a>;
 }
 
 export default function Home() {
@@ -70,10 +55,10 @@ export default function Home() {
             <p><strong>Atendimento digital e seguro</strong><br />para você resolver sem sair de casa.</p>
           </div>
         </div>
-        <div className="hero-visual" aria-label="Prévia da plataforma Iustus">
+        <div className="hero-visual" aria-label="Prévia da plataforma Íustus">
           <div className="orbit orbit-one"></div><div className="orbit orbit-two"></div>
           <div className="case-window">
-            <div className="window-top"><div className="window-brand"><Mark small /> <b>IUSTUS</b></div><span>•••</span></div>
+            <div className="window-top"><div className="window-brand"><Mark small /> <b>MEU PAINEL</b></div><span>•••</span></div>
             <div className="workspace">
               <aside><span className="active-icon">⌂</span><span>▤</span><span>◌</span><span>◴</span></aside>
               <div className="case-content">
@@ -93,25 +78,25 @@ export default function Home() {
       <section id="como-funciona" className="section container how">
         <div className="section-intro"><div className="eyebrow">SIMPLICIDADE EM CADA ETAPA</div><h2>Da preocupação à defesa,<br /><span>em três passos.</span></h2></div>
         <div className="steps">
-          <article><span className="step-number">01</span><div className="step-icon">◈</div><h3>Assine a IUSTUS</h3><p>Escolha a assinatura anual por R$ 547 e tenha a plataforma disponível durante toda a vigência.</p></article>
+          <article><span className="step-number">01</span><div className="step-icon">◈</div><h3>Assine a ÍUSTUS</h3><p>Escolha a assinatura anual por R$ 547 e tenha a plataforma disponível durante toda a vigência.</p></article>
           <article><span className="step-number">02</span><div className="step-icon">↥</div><h3>Envie o caso e a procuração</h3><p>Conte o que aconteceu, anexe os documentos necessários e envie sua procuração pelo painel seguro.</p></article>
           <article><span className="step-number">03</span><div className="step-icon">✓</div><h3>Receba sua defesa preparada</h3><p>Acompanhe a solicitação pela plataforma e receba a preparação da sua defesa em um só lugar.</p></article>
         </div>
       </section>
 
-      <section id="beneficios" className="benefits"><div className="container benefits-grid"><div className="benefit-copy"><div className="eyebrow">NÃO É APENAS UMA PLATAFORMA</div><h2>É a tranquilidade de ter <span>uma defesa ao seu alcance.</span></h2><p>Você não contrata caso a caso. A assinatura anual mantém a IUSTUS disponível para organizar suas solicitações, documentos e defesas sempre que precisar.</p><a href="#plano" className="text-link">Conheça a assinatura IUSTUS <Arrow /></a></div><div className="benefit-list"><article><span>01</span><div><h3>Uso ilimitado durante o ano</h3><p>Envie quantos casos precisar enquanto sua assinatura estiver vigente.</p></div></article><article><span>02</span><div><h3>Caso, documentos e procuração no mesmo painel</h3><p>Centralize o que é necessário para iniciar sua solicitação com segurança.</p></div></article><article><span>03</span><div><h3>Sua defesa preparada e acessível</h3><p>Acompanhe o andamento e receba sua defesa pela própria plataforma.</p></div></article></div></div></section>
+      <section id="beneficios" className="benefits"><div className="container benefits-grid"><div className="benefit-copy"><div className="eyebrow">NÃO É APENAS UMA PLATAFORMA</div><h2>É a tranquilidade de ter <span>uma defesa ao seu alcance.</span></h2><p>Você não contrata caso a caso. A assinatura anual mantém a ÍUSTUS disponível para organizar suas solicitações, documentos e defesas sempre que precisar.</p><a href="#plano" className="text-link">Conheça a assinatura ÍUSTUS <Arrow /></a></div><div className="benefit-list"><article><span>01</span><div><h3>Uso ilimitado durante o ano</h3><p>Envie quantos casos precisar enquanto sua assinatura estiver vigente.</p></div></article><article><span>02</span><div><h3>Caso, documentos e procuração no mesmo painel</h3><p>Centralize o que é necessário para iniciar sua solicitação com segurança.</p></div></article><article><span>03</span><div><h3>Sua defesa preparada e acessível</h3><p>Acompanhe o andamento e receba sua defesa pela própria plataforma.</p></div></article></div></div></section>
 
       <section id="plano" className="section pricing container">
         <div className="pricing-intro"><div className="eyebrow">ASSINATURA ANUAL</div><h2>Defesas quando precisar,<br />em um único plano.</h2><p>Assine uma vez ao ano e use a plataforma quantas vezes precisar durante a vigência da sua assinatura.</p></div>
-        <article className="price-card"><div className="price-top"><div><span className="plan-label">PLANO IUSTUS ANUAL</span><h3>Defesa jurídica disponível o ano todo.</h3></div><span className="best">USO ILIMITADO</span></div><div className="price"><sup>R$</sup><strong>547</strong><span>/ano</span></div><p className="price-equivalent">Pague à vista ou divida em 6 ou 12 vezes.</p><ul><li><Check /> Uso ilimitado da plataforma durante a assinatura</li><li><Check /> Envio de casos, documentos e procuração online</li><li><Check /> Acompanhamento de cada solicitação pelo painel</li><li><Check /> Recebimento da defesa preparada na plataforma</li></ul><Link className="button primary price-button" href="/checkout">Quero assinar a IUSTUS <Arrow /></Link><small className="secure-line">⌁ Pagamento seguro · Opções em 6 ou 12 vezes</small></article>
+        <article className="price-card"><div className="price-top"><div><span className="plan-label">PLANO ÍUSTUS ANUAL</span><h3>Defesa jurídica disponível o ano todo.</h3></div><span className="best">USO ILIMITADO</span></div><div className="price"><sup>R$</sup><strong>547</strong><span>/ano</span></div><p className="price-equivalent">Pague à vista ou divida em 6 ou 12 vezes.</p><ul><li><Check /> Uso ilimitado da plataforma durante a assinatura</li><li><Check /> Envio de casos, documentos e procuração online</li><li><Check /> Acompanhamento de cada solicitação pelo painel</li><li><Check /> Recebimento da defesa preparada na plataforma</li></ul><Link className="button primary price-button" href="/checkout">Quero assinar a ÍUSTUS <Arrow /></Link><small className="secure-line">⌁ Pagamento seguro · Opções em 6 ou 12 vezes</small></article>
       </section>
 
       <section className="testimonials container" aria-labelledby="testimonials-title">
         <div className="section-intro"><div><div className="eyebrow">PROVA SOCIAL</div><h2 id="testimonials-title">Histórias que inspiram<br /><span>mais tranquilidade.</span></h2></div><p className="testimonial-note">Modelos de depoimento para substituir por relatos reais e autorizados antes da publicação.</p></div>
         <div className="testimonial-grid">
-          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Use este espaço para contar como a plataforma trouxe clareza e segurança para uma situação jurídica.”</blockquote><footer><span className="review-avatar">C</span><div><b>Cliente IUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
-          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Inclua aqui um relato real sobre a praticidade de enviar o caso e a procuração sem sair de casa.”</blockquote><footer><span className="review-avatar">M</span><div><b>Cliente IUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
-          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Este card pode destacar a experiência de acompanhar a solicitação e acessar a defesa pelo dashboard.”</blockquote><footer><span className="review-avatar">R</span><div><b>Cliente IUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
+          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Use este espaço para contar como a plataforma trouxe clareza e segurança para uma situação jurídica.”</blockquote><footer><span className="review-avatar">C</span><div><b>Cliente ÍUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
+          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Inclua aqui um relato real sobre a praticidade de enviar o caso e a procuração sem sair de casa.”</blockquote><footer><span className="review-avatar">M</span><div><b>Cliente ÍUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
+          <article><div className="rating" aria-label="Cinco estrelas">★★★★★</div><blockquote>“Este card pode destacar a experiência de acompanhar a solicitação e acessar a defesa pelo dashboard.”</blockquote><footer><span className="review-avatar">R</span><div><b>Cliente ÍUSTUS</b><small>Depoimento autorizado</small></div></footer></article>
         </div>
       </section>
 
@@ -119,7 +104,7 @@ export default function Home() {
 
       <section className="final-cta"><div className="cta-light"></div><div className="container cta-content"><Mark /><div><div className="eyebrow">SEU PRÓXIMO PASSO COMEÇA AQUI</div><h2>Assine uma vez e use<br /><span>sempre que precisar.</span></h2></div><Link className="button primary" href="/checkout">Assinar por R$ 547/ano <Arrow /></Link></div></section>
 
-      <footer><div className="container footer-inner"><Logo /><p>© 2026 IUSTUS. Defesa jurídica online, com clareza e segurança.</p><div><a href="#privacidade">Privacidade</a><a href="#termos">Termos de uso</a></div></div></footer>
+      <footer><div className="container footer-inner"><Logo /><p>© 2026 ÍUSTUS. Defesa jurídica online, com clareza e segurança.</p><div><a href="#privacidade">Privacidade</a><a href="#termos">Termos de uso</a></div></div></footer>
       <div className="mobile-purchase"><div><small>Plano anual</small><b>R$ 547</b></div><Link href="/checkout">Assinar agora <Arrow /></Link></div>
     </main>
   );

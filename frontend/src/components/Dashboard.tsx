@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { api, ApiError, Portal, Profile } from "@/lib/api/client";
 import "./dashboard.css";
 import CasesWorkspace from "./CasesWorkspace";
+import Brand from "./Brand";
 
 export default function Dashboard({ portal }: { portal: Portal }) {
   const [user, setUser] = useState<Profile>();
@@ -29,7 +30,7 @@ export default function Dashboard({ portal }: { portal: Portal }) {
     finally { setBusy(false); }
   }
   return <main className="dashboard">
-    <header><div><strong>IUSTUS</strong><span>{portal === "team" ? "Portal profissional" : "Área do cliente"}</span></div>{user && <button disabled={busy} onClick={leave}>Sair da conta</button>}</header>
+    <header><div className="dashboard-brand"><Brand /><span>{portal === "team" ? "Portal profissional" : "Área do cliente"}</span></div>{user && <button disabled={busy} onClick={leave}>Sair da conta</button>}</header>
     {error && <p role="alert" className="dashboard-error">{error}</p>}
     {!user && !error && <p role="status">Carregando seu acesso…</p>}
     {user && <>

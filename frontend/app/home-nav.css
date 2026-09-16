@@ -1,1 +1,3 @@
 .nav-links .account-cta{padding:10px 13px;border:1px solid #3a4f70;border-radius:9px;color:#e2e7ef}.nav-links .account-cta:hover{border-color:#e5b86988;color:#e5b869;background:#e5b8690b}
+@media(max-width:800px){.nav-links{top:calc(100% + 4px)}}
+@media(max-width:480px){.hero::before{width:100vw;left:-18px}.orbit-one{width:100%;height:auto;aspect-ratio:1;right:0}}

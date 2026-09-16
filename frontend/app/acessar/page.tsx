@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Brand from "@/components/Brand";
 import { FormEvent, useEffect, useState } from "react";
 import { api, Context, Profile } from "@/lib/api/client";
 import "./acessar.css";
@@ -81,7 +82,7 @@ export default function Access() {
   return <main className="auth-page">
     <Link href="/" className="auth-back">← Voltar para o site</Link>
     <section className="auth-card" aria-labelledby="access-title">
-      <h1 id="access-title">IUSTUS</h1>
+      <h1 id="access-title" className="auth-brand-title"><Brand size={136} /></h1>
       <p className="auth-subtitle">{!context ? "ACESSO" : team ? "PORTAL PROFISSIONAL" : "ÁREA DO CLIENTE"}</p>
       <p className="auth-notice">Ambiente de testes. Use apenas dados fictícios.</p>
       {codes.length > 0 ? <div className="recovery-codes">
