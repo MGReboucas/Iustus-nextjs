@@ -1,5 +1,7 @@
 # Plano de segurança
 
+> Controles de acesso implementados e testados localmente: CSRF em mutações anônimas, sessões vinculadas ao portal, MFA com proteção contra reuso concorrente, hashes de tokens, criptografia dos fatores/fila e rate limit persistido. Detalhes e limites em [Acesso local](ACESSO.md). As metas e controles produtivos abaixo continuam sujeitos a homologação.
+
 > Controles propostos e achados estáticos. Não é certificação, teste de invasão ou declaração de conformidade.
 
 ## Prioridade imediata para o desenvolvimento

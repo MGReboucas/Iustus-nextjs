@@ -1,0 +1,46 @@
+"""Fixtures locais, restritas ao banco iustus_e2e e contas sintéticas e2e-*.
+
+Chamado pelo runner; nunca publicar como endpoint nem executar em produção.
+"""
+import json
+import os
+from pathlib import Path
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "backend"))
+os.environ["DJANGO_SETTINGS_MODULE"] = "config.settings.e2e"
+import django
+django.setup()
+
+from django.conf import settings
+from django.core.management import call_command
+from django.utils import timezone
+from apps.identity.models import IdentityEmail, User
+from apps.identity.security import decrypt
+
+action = sys.argv[1]
+if settings.DATABASES["default"]["NAME"] != "iustus_e2e" or not settings.DEBUG:
+    raise SystemExit("Fixtures só são permitidas no banco isolado iustus_e2e.")
+
+if action == "prepare":
+    import psycopg
+    db = settings.DATABASES["default"]
+    with psycopg.connect(dbname="postgres", user=db["USER"], password=db["PASSWORD"], host=db["HOST"], port=db["PORT"], autocommit=True) as connection:
+        if not connection.execute("SELECT 1 FROM pg_database WHERE datname = %s", ("iustus_e2e",)).fetchone():
+            connection.execute("CREATE DATABASE iustus_e2e")
+    call_command("migrate", interactive=False, verbosity=0)
+    print("Banco E2E preparado.")
+else:
+    email = sys.argv[2]
+    if not re.fullmatch(r"e2e-[a-z0-9-]+@example\.test", email):
+        raise SystemExit("Fixture aceita somente endereços sintéticos e2e-*@example.test.")
+    if action == "admin":
+        user = User.objects.create_user(email, "Synthetic-Browser-Passphrase-938!", first_name="Admin Teste", role=User.Role.ADMIN, email_verified_at=timezone.now())
+        print(json.dumps({"id": str(user.pk)}))
+    elif action == "mail":
+        item = IdentityEmail.objects.filter(recipient=email).latest("created_at")
+        print(json.dumps({"body": decrypt(item.encrypted_body)}))
+    else:
+        raise SystemExit("Ação desconhecida.")

@@ -4,7 +4,7 @@
 
 ## Evidência local
 
-[package.json](../frontend/package.json), [package-lock.json](../frontend/package-lock.json), [app/page.js](../frontend/app/page.js), [app/layout.js](../frontend/app/layout.js), [tela de acesso](../frontend/app/acessar/page.js), [checkout](../frontend/app/checkout/page.js), [formulário PagBank](../frontend/app/checkout/PagBankTransparentForm.js), [sessão](../frontend/app/api/pagbank/session/route.js), [pagamento](../frontend/app/api/pagbank/payment/route.js), [.env.example](../frontend/.env.example), [.gitignore](../.gitignore), estilos em `app/` e [HTML de referência](../frontend/index.html). As [diretrizes originais](DIRETRIZES_ORIGINAIS.md) registram o material fornecido pelo usuário.
+[package.json](../frontend/package.json), [package-lock.json](../frontend/package-lock.json), [app/page.js](../frontend/app/page.js), [app/layout.js](../frontend/app/layout.js), [tela de acesso](../frontend/app/acessar/page.tsx), [checkout](../frontend/app/checkout/page.js), [formulário PagBank](../frontend/app/checkout/PagBankTransparentForm.js), [sessão](../frontend/app/api/pagbank/session/route.js), [pagamento](../frontend/app/api/pagbank/payment/route.js), [.env.example](../frontend/.env.example), [.gitignore](../.gitignore), estilos em `app/` e [HTML de referência](../frontend/index.html). As [diretrizes originais](DIRETRIZES_ORIGINAIS.md) registram o material fornecido pelo usuário.
 
 O inventário e os achados financeiros decorrem da leitura estática desses arquivos, agora em frontend/. A organização posterior acrescentou a base em backend/, dependências travadas e verificações locais de build e testes; os resultados estão em Verificação. Não foram examinados registros produtivos nem executadas operações financeiras. Dependências instaladas e cache de build não foram tratados como código autoral do projeto.
 
@@ -32,3 +32,12 @@ O inventário e os achados financeiros decorrem da leitura estática desses arqu
 ## O que constitui proposta própria
 
 Next.js/TypeScript, Python/Django/DRF e PostgreSQL compõem a arquitetura aprovada pelo usuário. Organização modular, outbox, isolamento de sessões, limites de arquivo, metas de capacidade/desempenho, janelas operacionais e estimativas são decisões ou propostas de engenharia desta documentação. Não atribuí-las aos fornecedores como requisitos oficiais nem tratá-las como aprovação jurídica. Django 5.2.17 e DRF 3.18.1 estão travados na fundação local; isso não define homologação produtiva. Datas resultam apenas do backlog e do calendário declarados em [Cronograma](CRONOGRAMA.md).
+
+## Referências do incremento de acesso
+
+- [Next.js: atualização de segurança de agosto de 2026](https://nextjs.org/blog/august-2026-security-release): atualização do frontend para 15.5.25 dentro da linha 15.
+- [React: avisos de segurança de Server Components](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components): React/React DOM atualizados para 19.1.9.
+- [PyOTP](https://pyauth.github.io/pyotp/): TOTP e prevenção de reuso.
+- [Fernet](https://cryptography.io/en/latest/fernet/): criptografia autenticada dos segredos de MFA e da fila de identidade.
+
+Versões exatas estão nos lockfiles; atualização não equivale a auditoria completa.

@@ -11,7 +11,7 @@
 | Atuação civil | Atuação completa: ajuizar, defender, protocolar e acompanhar; demais matérias civis incluídas, inclusive consumo e imobiliário | Fases cobertas pelo contrato e pelo preço da assinatura ainda serão delimitadas; lista de exemplos não restringe as matérias aceitas |
 | Equipe jurídica inicial | Dois advogados | Jornada, especialidades, capacidade por caso e responsáveis nominais ainda não informados |
 | Portais | Área do cliente separada do portal profissional por subdomínio | Domínio real, configuração de sessões e implantação ainda pendentes |
-| Stack de destino | Next.js + TypeScript no frontend; Python + Django + Django REST Framework no backend; PostgreSQL | Decisão aprovada; versões, hospedagem e implementação ainda pendentes |
+| Stack de destino | Next.js + TypeScript no frontend; Python + Django + Django REST Framework no backend; PostgreSQL | Decisão aprovada; versões locais travadas; identidade implementada; hospedagem pendente |
 
 As duas vagas jurídicas não alteram a premissa técnica de um desenvolvedor, 8h/dia. A proposta detalhada de atendimento e as perguntas restantes estão em [Regras do serviço](REGRAS_DO_SERVICO.md). Confirmação de área não equivale à inclusão irrestrita de todas as demandas ou fases no preço anunciado.
 
@@ -21,7 +21,7 @@ As duas vagas jurídicas não alteram a premissa técnica de um desenvolvedor, 8
 | --- | --- | --- | --- |
 | ADR-001 | Proposta original: backend e frontend no Next.js | Preservada como histórico; substituída por ADR-010 após decisão do usuário | Superada |
 | ADR-002 | PostgreSQL com Django ORM e migrações Django versionadas | Frontend não acessa banco; provedor gerenciado e versão do banco serão homologados em DEV-005/006 | Tecnologia aprovada; infraestrutura pendente |
-| ADR-003 | Identidade Django e sessões persistidas, vinculadas a portal; MFA da equipe por componente mantido | Django concentra credenciais; MFA, convites e regras por recurso precisam de implementação e teste | Base definida por ADR-010; componente MFA a homologar |
+| ADR-003 | Identidade Django e sessões persistidas, vinculadas a portal; MFA da equipe por componente mantido | Django concentra credenciais; MFA TOTP, convites e isolamento de portais implementados e testados localmente; regras por caso pendentes | Base definida por ADR-010; PyOTP/Fernet implementados; operação produtiva a homologar |
 | ADR-004 | Armazenamento de objetos privado e URLs curtas, com quarentena e scanner | Não persistir anexos no filesystem efêmero do deploy; provedor e região dependem de EXT-03 | Proposta |
 | ADR-005 | Outbox em PostgreSQL e worker Python do mesmo backend, com retry, lease e fila de falhas | Executor persistente separado da API; não pressupor Redis/Celery nem usar só callback em memória | Desenho técnico da arquitetura aprovada |
 | ADR-006 | Preservar PagBank como provedor e validar produto/API habilitados antes de implementar contrato final | Código atual usa sessão/checkout transparente e XML; não misturar enums e autenticação de APIs diferentes | Bloqueada por EXT-01 |
@@ -32,7 +32,7 @@ As duas vagas jurídicas não alteram a premissa técnica de um desenvolvedor, 8
 
 Registrar decisão final, data, responsável, alternativa descartada e impacto na baseline ao validar cada ADR. Seleção concreta de fornecedores deve revisar documentação oficial compatível com a versão adotada, custos, exportação de dados e localização do tratamento.
 
-**Impacto da escolha de arquitetura:** DEV-059 a DEV-064 acrescentaram uma estimativa de 80h técnicas para fundação Django, entrada por subdomínio, sessões separadas, retirada das rotas financeiras antigas, testes entre serviços e implantação coordenada. Esse valor é hipótese de planejamento, não custo obrigatório do framework. As tarefas de domínio passam a usar Django; a contingência e as datas são recalculadas pela fonte única. Após autorização para organizar o projeto, foi criado o scaffold local em um repositório, com frontend, backend, infra e docs. Isso não conclui as tarefas nem representa homologação produtiva; a baseline ainda não é um saldo de horas restantes.
+**Impacto da escolha de arquitetura:** DEV-059 a DEV-064 acrescentaram uma estimativa de 80h técnicas para fundação Django, entrada por subdomínio, sessões separadas, retirada das rotas financeiras antigas, testes entre serviços e implantação coordenada. Esse valor é hipótese de planejamento, não custo obrigatório do framework. As tarefas de domínio passam a usar Django; a contingência e as datas são recalculadas pela fonte única. Após autorização para organizar o projeto, foi criado o monorepositório e implementado o primeiro incremento de acesso com PostgreSQL, MFA e testes de navegador. Isso não conclui as tarefas nem representa homologação produtiva; a baseline ainda não é um saldo de horas restantes.
 
 ## Hipóteses de negócio
 

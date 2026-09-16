@@ -50,5 +50,6 @@ htmlcov/
 # Dados e evidências locais; nunca versionar documentos de clientes
 backend/media/
 backend/staticfiles/
+.local/
 test-results/
 playwright-report/

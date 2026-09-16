@@ -10,13 +10,13 @@
 | Homologação | Sintéticos controlados | Conta sandbox e infraestrutura separada | Avaliadores convidados e acessos revogáveis |
 | Produção | Dados reais após autorização | Serviços contratados e monitorados | Acesso mínimo, MFA e trilha |
 
-Variáveis do legado em `frontend/.env.example`: `PAGBANK_EMAIL`, `PAGBANK_TOKEN`, `NEXT_PUBLIC_PAGBANK_SANDBOX`. Segredos privados nunca usam prefixo `NEXT_PUBLIC_`. O flag público é incorporado ao build; trocar ambiente exige build e verificação de coerência com o servidor. `backend/.env.example` contém configuração exclusivamente local de settings, chave Django e DATABASE_URL; a senha de exemplo é apenas do PostgreSQL local opcional. Exemplos de objetos, e-mail, scanner e jobs serão adicionados quando implementados. Não compartilhar arquivos de ambiente entre os dois processos.
+Configuração local e comandos atuais: [Acesso local](ACESSO.md). O script infra/setup_local.py gera segredos persistentes privados em backend/.env e frontend/.env.local, sem sobrescrever existentes. DATABASE_URL, chave Fernet, segredo Django e chave privada do proxy são exclusivos do servidor; nunca usam NEXT_PUBLIC_. O legado mantém PAGBANK_EMAIL, PAGBANK_TOKEN e NEXT_PUBLIC_PAGBANK_SANDBOX, com suas limitações de homologação.
 
 ## Antes de publicar
 
 A arquitetura aprovada terá três processos: frontend Next.js/Node, API Django/Python e worker Python usando o mesmo código de domínio do backend. Entrada HTTPS encaminha telas ao Next.js e `/api/v1` ao Django em cada portal. Banco e armazenamento ficam privados; sessão é vinculada ao host validado, e a origem Django não aceita acesso direto de clientes externos. Não depender do ciclo de vida de uma requisição web para concluir jobs.
 
-Configuração produtiva futura inclui chave secreta Django, conexão PostgreSQL, hosts permitidos, origens CSRF exatas, cookies seguros, DEBUG desativado e credenciais de objetos/e-mail/scanner. A base criada possui apenas settings local/test e liveness; não há settings produtivos homologados. As chaves financeiras hoje utilizadas pelas rotas Next.js serão exclusivas do backend após a migração; o flag público de sandbox permanece coerente com o ambiente do adaptador. Se Django Admin for habilitado, restringir acesso operacional e MFA sem contornar regras de negócio.
+Configuração produtiva futura inclui chave secreta Django, conexão PostgreSQL, hosts permitidos, origens CSRF exatas, cookies seguros, DEBUG desativado e credenciais de objetos/e-mail/scanner. Há settings local, testes PostgreSQL/SQLite e E2E; não há settings produtivos homologados. O worker local grava e-mails em arquivos; SMTP produtivo não está configurado. As chaves financeiras hoje utilizadas pelas rotas Next.js serão exclusivas do backend após a migração; o flag público de sandbox permanece coerente com o ambiente do adaptador. Se Django Admin for habilitado, restringir acesso operacional e MFA sem contornar regras de negócio.
 
 1. Conferir aceite M9, decisões bloqueantes e proprietário operacional.
 2. Revisar versões, dependências, segredos, políticas e escopo de acesso.

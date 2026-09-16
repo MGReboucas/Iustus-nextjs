@@ -1,5 +1,5 @@
-# Integração HTTP
+# Cliente da API
 
-Local do futuro cliente HTTP TypeScript da API Django. `contracts.ts` descreve apenas a resposta de liveness disponível na base inicial.
+client.ts usa fetch na mesma origem, cookies de sessão, erros tipados e CSRF renovado antes das mutações. Não guarda credenciais em localStorage. O Route Handler app/api/v1 valida host, limita corpo e define o contexto privado do portal antes de encaminhar ao Django.
 
-As telas e as rotas PagBank existentes ainda não usam Django. A integração autenticada será implementada com `/api/v1` na mesma origem, cookies por portal, CSRF, erros tipados e respostas privadas sem cache, conforme [contrato da API](../../../../docs/API.md). Não armazenar sessão em localStorage nem acessar PostgreSQL a partir do frontend.
+contracts.ts mantém o tipo de liveness. Contratos de identidade implementados e contratos de negócio futuros: [API](../../../../docs/API.md). [Configuração local](../../../../docs/ACESSO.md).

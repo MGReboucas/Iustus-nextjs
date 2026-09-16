@@ -7,7 +7,7 @@ As telas futuras serão Next.js + TypeScript, consumindo a API Django na mesma o
 | ID | Rota / tela | Situação atual | Conteúdo e ações do MVP | Requisitos |
 | --- | --- | --- | --- | --- |
 | UI-01 | `/` | Implementada em código | Proposta aprovada, plano, FAQ, termos e acesso; remover exemplos de depoimento antes de publicar | RF-001/037 |
-| UI-02 | `/acessar` | Interface demonstrativa | Cadastro, login, verificação, erros seguros e logout; ocultar Google fora do MVP | RF-002/003/005 |
+| UI-02 | `/acessar` | Integrada ao Django; testes locais | Cadastro, login, verificação, erros seguros e logout; Google removido do incremento | RF-002/003/005 |
 | UI-03 | `/recuperar`, `/redefinir-senha` | Planejada | Pedido genérico, token inválido/vencido e confirmação | RF-004 |
 | UI-04 | `/checkout` | Integração parcial | Cotação, total, parcelas permitidas, consentimentos aplicáveis e envio idempotente | RF-008 |
 | UI-05 | `/assinatura` | Planejada | Pedido pendente/pago/recusado, vigência, expiração e instrução de nova contratação | RF-009/010 |

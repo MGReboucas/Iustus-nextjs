@@ -1,6 +1,6 @@
 # Modelo de dados
 
-> Modelo lógico para PostgreSQL e Django ORM. A fundação já inclui User customizado e migração inicial; as demais entidades abaixo são planejadas. Nenhum banco PostgreSQL foi provisionado ou migrado nesta organização.
+> Modelo lógico para PostgreSQL/Django. Implementados e migrados localmente: User, ActionToken, MFADevice, RateLimitBucket, IdentityEmail, IdentityAudit e sessões Django. As entidades de negócio descritas abaixo são planejadas; nomes e campos futuros não equivalem ao schema físico atual.
 
 ## Convenções
 

@@ -2,7 +2,7 @@
 
 Plataforma por assinatura para solicitar, acompanhar e receber defesas jurídicas online. A jornada pretendida reúne contratação, envio de casos e documentos, procuração, acompanhamento pelo cliente e preparação da defesa por advogado designado.
 
-**Estado em 16/09/2026:** repositório organizado em frontend, backend, infraestrutura e documentação. Landing, checkout PagBank parcial e acesso demonstrativo foram preservados. A base Django inclui usuário customizado, migração inicial e endpoint de saúde; autenticação dos portais, banco PostgreSQL em operação, dashboards, worker e gestão jurídica ainda serão desenvolvidos. Regras operacionais, fornecedores e calendário permanecem pendentes.
+**Estado em 16/09/2026:** primeiro incremento de acesso implementado: cadastro, confirmação de e-mail, login, recuperação, convite de advogado, MFA e painéis iniciais integrados ao Django/PostgreSQL. Há worker para e-mails de identidade, gravados localmente em arquivos. Gestão jurídica, assinatura e migração financeira continuam pendentes. Ambiente exclusivo de testes com dados fictícios; não liberado para produção.
 
 [Documentação completa](docs/README.md) · [Estado atual](docs/ESTADO_ATUAL.md) · [MVP](docs/MVP.md) · [Backlog](docs/BACKLOG.md) · [Cronograma](docs/CRONOGRAMA.md)
 
@@ -22,22 +22,22 @@ A landing apresenta proposta de valor, jornada em três etapas, benefícios, pla
 | --- | --- |
 | Landing page e identidade visual | Código existente; revisão final de conteúdo/acessibilidade pendente |
 | Checkout PagBank | SDK e rotas existentes; correções de segurança, conciliação e homologação pendentes |
-| Login e cadastro | Interface demonstrativa; sem autenticação persistente |
-| Fundação técnica | Frontend com TypeScript incremental; Django/DRF com usuário UUID, migração inicial, liveness e testes locais |
+| Login e cadastro | Cadastro, confirmação, login, recuperação e sessões persistentes testados localmente |
+| Fundação técnica | Next.js/TypeScript, Django/DRF e PostgreSQL; MFA, isolamento de portais e worker de identidade |
 | Assinatura, casos e documentos | Planejados; sem módulos persistentes implementados |
-| Dashboards e gestão jurídica | Planejados |
-| Documentação do MVP | Revisão 1.3; estrutura criada e validação operacional pendente |
+| Dashboards e gestão jurídica | Painéis iniciais com perfil; casos, documentos e filas jurídicas pendentes |
+| Documentação do MVP | Revisão 1.4; acesso implementado e validação operacional pendente |
 | Produção | Nenhuma evidência de homologação ou implantação verificada nesta etapa |
 
 O levantamento identificou envio desnecessário de campos de cartão ao backend e exibição de aprovação sem confirmação de estado financeiro. Correções estão priorizadas em [Estado atual](docs/ESTADO_ATUAL.md) e [Segurança](docs/SEGURANCA.md). A existência do checkout não significa que esteja pronto para cobrança real.
 
 ## Arquitetura resumida
 
-**Atual:** aplicação Next.js 15.3.2 / React 19.1.0 preservada em `frontend/`, com JavaScript/CSS existentes e TypeScript configurado para adoção incremental. Em `backend/`, Django 5.2.17 e DRF 3.18.1 têm configuração local, modelo de usuário e uma API de saúde. As rotas PagBank ainda estão no Next.js; a base Django não implementa os fluxos de acesso e pagamento do produto.
+**Atual:** Next.js 15.5.25 / React 19.1.9 em `frontend/`, com acesso e painéis em TypeScript. Django 5.2.17 e DRF 3.18.1 em `backend/` implementam identidade persistida em PostgreSQL. Landing e código do checkout permanecem preservados; as rotas PagBank ainda estão no Next.js.
 
 **Arquitetura aprovada:** Next.js + TypeScript no frontend; Python + Django + Django REST Framework no backend; PostgreSQL com Django ORM; armazenamento privado de objetos e worker Python separado com outbox transacional. Um repositório, com backend modular responsável por identidade, autorização, regras jurídicas e pagamentos. Fornecedores, versões, região e custos ainda serão validados. [Arquitetura e diagramas](docs/ARCHITECTURE.md) · [Modelo de dados](docs/DATABASE.md) · [API](docs/API.md).
 
-**Portais aprovados:** área do cliente e portal profissional em subdomínios separados, com sessões vinculadas ao respectivo portal e MFA obrigatório para a equipe. Uma entrada HTTPS encaminhará `/api/v1` ao Django no mesmo domínio de cada portal. A base de código foi criada; subdomínios, integração e isolamento de sessões continuam pendentes.
+**Portais aprovados:** cliente e equipe em origens separadas, sessões vinculadas ao portal e MFA obrigatório para profissionais. Localmente, cliente usa `localhost:3000` e equipe `127.0.0.1:3000`; o proxy Next.js encaminha `/api/v1` ao Django. Subdomínios reais, HTTPS e infraestrutura produtiva permanecem pendentes.
 
 ## Roadmap resumido
 
@@ -75,6 +75,8 @@ Calendário provisório de segunda a sexta-feira; feriados, férias e ausências
 <!-- PLANEJAMENTO:FIM -->
 
 ## Executar localmente
+
+Siga o [guia de acesso local](docs/ACESSO.md) para preparar PostgreSQL, configurar os dois portais, iniciar o worker e criar o primeiro administrador. Os comandos abaixo iniciam somente o frontend.
 
 Frontend verificado com Node.js 24.14.1; dependências travadas em `frontend/package-lock.json`. Na raiz:
 
@@ -162,6 +164,6 @@ A fonte única de requisitos e estimativas está em [dados.cjs](docs/planejament
 
 ## Próximo passo e limite desta etapa
 
-Conferir o inventário e validar regras, fornecedores e calendário (DEV-001 a DEV-003), avançando na fundação técnica. A organização do repositório e o scaffold local foram autorizados e executados; isso não conclui DEV-004/005/059 nem os fluxos do produto. As estimativas representam a baseline integral, ainda não um saldo de horas restantes. O worker, os portais e a migração financeira continuam no backlog.
+**Próximo incremento:** casos e triagem, após consolidar as regras de atendimento e a integração com a elegibilidade da assinatura. Antes de cobrança ou publicação, corrigir o checkout, homologar e-mail, domínios, segurança e políticas jurídicas. As estimativas continuam sendo a baseline integral de 1696h, sem desconto automático do trabalho realizado.
 
 A comunicação jurídica, critérios de atendimento, modelos, condições comerciais, retenção de dados e fluxos de contratação devem ser revisados pelos responsáveis da operação antes da publicação.

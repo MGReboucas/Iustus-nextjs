@@ -1,6 +1,6 @@
 # Contratos de API
 
-> Contrato lógico do produto, ainda não implementado. Existem as duas rotas PagBank legadas no frontend e uma rota de liveness na fundação Django.
+> Identidade está implementada e testada localmente conforme a seção abaixo. Contratos de pagamentos, casos e demais recursos descrevem o produto futuro. As duas rotas PagBank legadas permanecem no frontend.
 
 ## API atual
 
@@ -11,6 +11,30 @@
 | GET `/api/v1/health/` | Público, sem credenciais; retorna `{ "status": "ok" }`, no-store | Somente liveness do processo Django; não verifica PostgreSQL, jobs ou autenticação; ainda sem integração ao frontend |
 
 Migração aprovada: transferir a integração ao módulo billing do backend Django e atualizar o frontend junto, em DEV-012/013/062. Retirar a execução financeira das rotas Next.js antigas; não manter um caminho alternativo de cobrança. O contrato final com PagBank deve corresponder ao produto habilitado em EXT-01; nomes externos de campos, headers e status só serão fixados após DEV-012.
+
+## Identidade implementada neste incremento
+
+Prefixo /api/v1, sem barra final nas rotas abaixo. Todas as mutações exigem CSRF, inclusive anônimas. Acesso por proxy privado validado; exemplos de HTTP e cookies locais não são configuração de produção. Campos desconhecidos são rejeitados.
+
+| Método / rota | Contrato atual |
+| --- | --- |
+| GET /auth/csrf | csrfToken, portal e policyVersion; não autentica |
+| POST /auth/register | name de 2 a 150 caracteres, email, password, policyVersion=development-v1; 202 genérico; portal cliente |
+| POST /auth/verify | token de uso único; 204 |
+| POST /auth/resend | email; 202 genérico |
+| POST /auth/login | email, password; cliente recebe sessão, equipe recebe desafio limitado com 202 |
+| POST /auth/mfa/enroll | Desafio da equipe; retorna chave TOTP para cadastro; ainda não autentica |
+| POST /auth/mfa/verify | code: TOTP ou código de recuperação; cria sessão; cadastro inicial retorna oito códigos uma única vez |
+| POST /auth/recovery | email; 202 genérico |
+| POST /auth/reset | token, password; 204 e revogação das sessões/desafios anteriores |
+| POST /auth/logout | Encerra sessão; 204 |
+| POST /admin/invitations | ADMIN com MFA, corpo somente email; cria convite LAWYER; 202 |
+| POST /auth/invitations/accept | token, name, password; cria advogado verificado; 201; login e MFA continuam obrigatórios |
+| GET /me | Perfil do próprio usuário; PATCH não implementado |
+| GET /dashboard/client | Sessão CLIENT; perfil e caseManagementAvailable=false |
+| GET /dashboard/team | Sessão LAWYER/ADMIN com MFA; perfil e caseManagementAvailable=false |
+
+Aceite development-v1 registra somente ciência do ambiente de testes. Políticas jurídicas versionadas do contrato futuro ainda não foram implementadas. Erros atuais usam error.code e error.message; requestId e contrato OpenAPI permanecem pendentes. Veja [Acesso local](ACESSO.md).
 
 ## Convenções futuras
 
@@ -28,7 +52,7 @@ Erro padrão:
 
 Não retornar stack trace, credenciais, XML bruto do provedor ou detalhes de outro usuário. No servidor, validar objeto por lista explícita de campos; rejeitar campos financeiros proibidos. Corpo JSON limitado inicialmente a 256 KiB; uploads vão para armazenamento privado com limite separado de 20 MiB.
 
-## Identidade e perfil
+## Identidade e perfil — contrato alvo
 
 | Método / rota | Autorização | Entrada → saída / verificação |
 | --- | --- | --- |
@@ -44,7 +68,7 @@ Não retornar stack trace, credenciais, XML bruto do provedor ou detalhes de out
 | POST `/admin/invitations` | Admin com MFA | email, role=LAWYER → convite; ADMIN exige concessão reforçada |
 | PATCH `/admin/users/{id}` | Admin com MFA | status/roles, reason, version → usuário; impedir último admin removido |
 
-Identidade pertence ao Django; usar componentes mantidos para verificação e MFA, definidos na fundação técnica. Convite da equipe exige cadastro do fator em fluxo limitado, com confirmação antes de conceder sessão profissional. Recuperação/troca de fator exige procedimento reforçado e revogação; não permitir fallback só por senha. Não duplicar credenciais no Next.js.
+Identidade pertence ao Django; TOTP usa PyOTP e os segredos usam Fernet. O contrato alvo acima inclui capacidades ainda pendentes, como edição de perfil e administração de usuários. Convite da equipe exige cadastro do fator em fluxo limitado, com confirmação antes de conceder sessão profissional. Recuperação/troca de fator exige procedimento reforçado e revogação; não permitir fallback só por senha. Não duplicar credenciais no Next.js.
 
 ## Pagamentos e assinatura
 

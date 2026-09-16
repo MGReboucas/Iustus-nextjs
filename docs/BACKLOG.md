@@ -1,10 +1,10 @@
 # Backlog executável
 
-> Revisão 1.3 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 64 tarefas, 1360 horas técnicas. Toda tarefa tem prioridade MUST nesta baseline; funcionalidades posteriores estão explicitamente excluídas em [MVP](MVP.md). Situação: planejadas. A documentação inicial foi produzida; a fase 0 estima a conferência e validação humana, não contabiliza retroativamente o tempo desta sessão.
 
-Arquitetura aprovada: Next.js + TypeScript no frontend, Python + Django REST Framework no backend, PostgreSQL e worker Python separado. DEV-059 a DEV-064 acrescentam 80h técnicas para integração, isolamento dos portais e operação; reserva recalculada por fase. As tarefas existentes de domínio, persistência e identidade passam a usar Django/DRF; as horas adicionais não repetem a implementação desses módulos.
+Arquitetura aprovada: Next.js + TypeScript no frontend, Python + Django REST Framework no backend, PostgreSQL e worker Python separado. DEV-059 a DEV-064 acrescentam 80h técnicas para integração, isolamento dos portais e operação; reserva recalculada por fase. Acesso local possui evidências em [Acesso local](ACESSO.md). Contrato OpenAPI, domínios reais e operação produtiva ainda não foram concluídos.
 
 **Ordem de execução:** a sequência abaixo é estritamente serial, com um desenvolvedor. Dependências técnicas são indicadas por tarefa; a tarefa anterior na lista é também predecessora por capacidade. Cada fase tem reserva separada em [Cronograma](CRONOGRAMA.md). Não executar tarefas automaticamente a partir deste documento: esta entrega é de planejamento; implementação começa após autorização.
 

@@ -1,6 +1,6 @@
 # Estratégia de testes e homologação
 
-> Plano de validação do produto futuro. A organização inicial verificou build/TypeScript e seis testes da fundação Django; os cenários de negócio abaixo ainda não foram executados.
+> Plano de validação do produto. Este incremento executou 22 testes Django no PostgreSQL e três jornadas de navegador para identidade. Os cenários de negócio ainda não implementados continuam como roteiro futuro.
 
 ## Camadas
 
@@ -13,7 +13,7 @@
 | Não funcional | Acessibilidade, carga, recuperação, redaction e concorrência | Durante módulos e fase 13 |
 | Aceite humano | Adequação do fluxo jurídico, textos, modelos e operação | Fase 14, com responsáveis designados |
 
-A base inclui testes Python/Django, configuração TypeScript e comandos de build e verificação documental. Em backend/, executar `manage.py test --settings=config.settings.test` pelo Python da venv. Os seis testes atuais cobrem liveness, método indevido, ausência de login/admin, host não permitido, normalização/hash de usuário e unicidade de e-mail. SQLite em memória serve apenas à fundação; PostgreSQL isolado, testes de contratos, automação E2E e OpenAPI continuam pendentes em DEV-004/059 e demais tarefas.
+A suíte atual cobre cadastro/verificação, CSRF anônimo, sessões e revogação, isolamento de portal, convites, MFA/replay, recuperação de fator, rate limit e retry do worker. O teste concorrente de TOTP usa locks reais no PostgreSQL. Três jornadas Playwright verificam cliente, equipe e isolamento. Comandos e ambiente isolado estão em [Acesso local](ACESSO.md). SQLite em memória pula o teste de concorrência; não substitui PostgreSQL. OpenAPI, carga e os demais fluxos do produto permanecem pendentes.
 
 ## Cenários críticos de aceitação
 

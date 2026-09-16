@@ -1,19 +1,9 @@
-# Frontend Iustus
+# Frontend Next.js
 
-Aplicação Next.js existente, preservada em `app/`, com configuração TypeScript para adoção incremental. As telas JavaScript e CSS não foram reescritas. `index.html` permanece uma referência estática; não é a página servida pelo Next.js.
+Next.js 15.5.25 / React 19.1.9, com TypeScript incremental. Acesso e painéis usam a API Django através do proxy de mesma origem /api/v1. Cadastro, confirmação, recuperação, convites e MFA estão integrados; sessões não são guardadas em localStorage.
 
-Na raiz do repositório:
+Na raiz, npm run frontend:install instala frontend/package-lock.json; npm run dev, build e typecheck encaminham comandos para esta pasta. No PowerShell com restrição a scripts, usar npm.cmd.
 
-```bash
-npm run frontend:install
-npm run dev
-npm run typecheck
-npm run build
-npm start
-```
+Para preparar os dois portais e o backend, seguir [Acesso local](../docs/ACESSO.md). As variáveis privadas ficam em frontend/.env.local. Nunca colocar a chave do proxy ou segredos em NEXT_PUBLIC_.
 
-Em PowerShell com bloqueio de scripts, usar `npm.cmd` no lugar de `npm`; não é necessário alterar a política de execução. As dependências e o lockfile ficam nesta pasta. Na primeira instalação, `frontend:install` executa `npm ci` aqui.
-
-Copiar `.env.example` para `.env.local` nesta pasta somente para configurar o checkout de sandbox. Não colocar segredos em variáveis `NEXT_PUBLIC_`. Os arquivos de ambiente não são carregados a partir da raiz.
-
-A API Django inicial roda separadamente em `127.0.0.1:8000`; as telas ainda não a consomem. A integração dos portais e a migração PagBank continuam no backlog. As rotas financeiras legadas foram preservadas, incluindo os achados descritos em [Estado atual](../docs/ESTADO_ATUAL.md); não foram homologadas para cobrança real.
+Landing e código do checkout foram preservados. As rotas PagBank ainda são legadas e mantêm as limitações de [Estado atual](../docs/ESTADO_ATUAL.md); não estão homologadas para cobrança real. Painéis exibem somente perfil e funções implementadas, sem casos fictícios.

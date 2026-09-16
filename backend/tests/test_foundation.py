@@ -8,14 +8,14 @@ class HealthTests(SimpleTestCase):
         response = self.client.get("/api/v1/health/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {"status": "ok"})
-        self.assertEqual(response["Cache-Control"], "no-store")
+        self.assertIn("no-store", response["Cache-Control"])
 
     def test_health_does_not_accept_mutations(self):
         response = self.client.post("/api/v1/health/", data={})
         self.assertEqual(response.status_code, 405)
 
     def test_unimplemented_login_and_admin_are_not_published(self):
-        for route in ("/admin/", "/api-auth/login/", "/api/v1/auth/login"):
+        for route in ("/admin/", "/api-auth/login/"):
             with self.subTest(route=route):
                 self.assertEqual(self.client.get(route).status_code, 404)
 

@@ -1,6 +1,6 @@
 # Cronograma e previsão do MVP
 
-> Revisão 1.3 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 ## Previsão do projeto
 

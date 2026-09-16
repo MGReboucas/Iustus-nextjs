@@ -63,7 +63,7 @@ const table = (headers,rows)=>`| ${headers.join(' | ')} |\n| ${headers.map(()=> 
 const output = new Map();
 function doc(file,title,body){output.set(`docs/${file}`,`# ${title}\n\n${metadata}\n${body.trim()}\n`);}
 doc('REQUISITOS_FUNCIONAIS.md','Requisitos funcionais',`
-Catálogo de ${rf.length} requisitos do MVP proposto. MUST significa necessário para o escopo desta baseline, e não funcionalidade já implementada. A evidência atual está em [Estado atual](ESTADO_ATUAL.md). Os critérios abaixo devem ser testados; nenhum aceite foi executado nesta etapa documental.
+Catálogo de ${rf.length} requisitos do MVP proposto. MUST significa necessário para o escopo desta baseline, e não funcionalidade já implementada. A evidência atual está em [Estado atual](ESTADO_ATUAL.md). Os critérios abaixo devem ser testados; as evidências do primeiro incremento de acesso estão em [Acesso local](ACESSO.md), sem aceite integral do MVP.
 
 Origem: proposta comercial e fluxos existentes no repositório, diretrizes fornecidas e detalhamento de engenharia. A lista constitui proposta a validar, não relato de entrevistas já realizadas. Regras e hipóteses em [Regras de negócio](REGRAS_DE_NEGOCIO.md) e [Decisões](DECISOES.md).
 
@@ -87,7 +87,7 @@ ${rf.map(r=>`## US-${r.id.slice(3)} — ${r.title}\n\nComo **${r.actor.toLowerCa
 doc('BACKLOG.md','Backlog executável',`
 ${tasks.length} tarefas, ${technical} horas técnicas. Toda tarefa tem prioridade MUST nesta baseline; funcionalidades posteriores estão explicitamente excluídas em [MVP](MVP.md). Situação: planejadas. A documentação inicial foi produzida; a fase 0 estima a conferência e validação humana, não contabiliza retroativamente o tempo desta sessão.
 
-${config.architectureNote} As tarefas existentes de domínio, persistência e identidade passam a usar Django/DRF; as horas adicionais não repetem a implementação desses módulos.
+${config.architectureNote} Acesso local possui evidências em [Acesso local](ACESSO.md). Contrato OpenAPI, domínios reais e operação produtiva ainda não foram concluídos.
 
 **Ordem de execução:** a sequência abaixo é estritamente serial, com um desenvolvedor. Dependências técnicas são indicadas por tarefa; a tarefa anterior na lista é também predecessora por capacidade. Cada fase tem reserva separada em [Cronograma](CRONOGRAMA.md). Não executar tarefas automaticamente a partir deste documento: esta entrega é de planejamento; implementação começa após autorização.
 
@@ -168,11 +168,11 @@ Antes de cada commit: revisar diff, remover segredos/dados reais, executar verif
 ${table(['Tarefa','Título proposto','Verificação'],tasks.map(t=>[t.id,`${t.phase==='0'?'docs':t.phase==='13'||t.phase==='14'?'test':t.phase==='15'?'chore':'feat'}(${t.phase==='2A'?'billing':({0:'planning',1:'foundation',2:'auth',3:'cases',4:'documents',5:'client',6:'lawyer',7:'mandates',8:'timeline',9:'notifications',10:'legal',11:'admin',12:'security',13:'quality',14:'acceptance',15:'release'})[t.phase]}): ${t.title.charAt(0).toLowerCase()+t.title.slice(1)}`,`Critério de ${t.id} e Definition of Done`]))}
 `);
 doc('RESUMO_EXECUTIVO.md','Resumo executivo do planejamento',`
-**Situação:** repositório organizado em frontend/backend/infra/docs e fundação local criada. Baseline e hipóteses operacionais aguardam validação. Scaffold não equivale ao aceite das tarefas do MVP; as horas abaixo representam a estimativa integral, não o saldo restante.
+**Situação:** primeiro incremento de acesso integrado e testado localmente. Baseline e hipóteses operacionais aguardam validação. As horas abaixo representam a estimativa integral, não o saldo restante.
 
-Stack atual: Next.js 15.3.2, React 19.1.0, JavaScript/CSS preservados e TypeScript incremental em frontend/. Django 5.2.17 e DRF 3.18.1 em backend/, com usuário customizado, migração inicial e liveness. PostgreSQL em operação, autenticação dos portais e worker funcional continuam pendentes; PagBank permanece no legado Next.js.
+Stack atual: Next.js 15.5.25, React 19.1.9 e TypeScript incremental; Django 5.2.17 e DRF 3.18.1 com PostgreSQL, cadastro, sessões por portal, MFA e worker de e-mails de identidade. PagBank permanece no legado Next.js; casos e documentos ainda não foram implementados.
 
-${config.architectureNote} A organização inicial implementa parte da fundação; integração dos portais, contrato OpenAPI e operação produtiva ainda não foram concluídos.
+${config.architectureNote} A integração dos portais foi testada localmente. Contrato OpenAPI, subdomínios reais e operação produtiva ainda não foram concluídos.
 
 - Requisitos funcionais: ${rf.length}.
 - Requisitos não funcionais: ${rnf.length}.
@@ -184,7 +184,7 @@ ${summary}
 
 ${config.calendarNote}
 
-**Próxima tarefa recomendada:** revisar inventário e riscos em DEV-001 e validar hipóteses, fornecedores e calendário em DEV-002. Organização e scaffold foram autorizados; os demais critérios de DEV-004/005/059 e as dependências bloqueantes permanecem em aberto. Nenhuma tarefa integral foi marcada como aceita apenas pela criação de pastas.
+**Próxima tarefa recomendada:** consolidar regras e elegibilidade para implementar casos e triagem. Antes de cobrança/publicação, corrigir o checkout e homologar dependências produtivas. Os testes locais de acesso não significam aceite integral dos requisitos nem aprovação operacional.
 `);
 // Sincronizar apenas bloco gerado do README; conteúdo editorial permanece intacto.
 const readmePath = path.join(root,'README.md');
@@ -201,10 +201,10 @@ for(const [file,content] of output){
  else fs.writeFileSync(full,content,'utf8');
 }
 console.log(check?'PLANEJAMENTO VERIFICADO':`DOCUMENTAÇÃO IUSTUS — revisão ${config.documentVersion}; validação operacional pendente`);
-console.log(`Stack: Next.js 15.3.2 / React 19.1.0 / JavaScript / CSS / PagBank`);
+console.log(`Stack: Next.js 15.5.25 / React 19.1.9 / Django / PostgreSQL`);
 console.log(config.architectureNote);
 console.log(`RF: ${rf.length}; RNF: ${rnf.length}; RN: ${rules.length}; US: ${rf.length}; tarefas: ${tasks.length}`);
 console.log(`Horas técnicas: ${technical}; contingência: ${contingency}; total: ${total}; dias: ${total/8}; semanas: ${fmt(total/40)}`);
 console.log(`MVP: ${br(m('M8').end)}; homologação: ${br(m('M9').end)}; produção: ${br(m('M10').end)}`);
 console.log(config.calendarNote);
-console.log('Próxima tarefa: revisão de inventário/regras e continuidade da fundação. Scaffold local presente; fluxos do MVP ainda pendentes.');
+console.log('Próxima tarefa: consolidar regras/elegibilidade para casos e triagem. Acesso testado localmente; operação produtiva e demais módulos pendentes.');

@@ -1,11 +1,11 @@
 """Desenvolvimento em loopback; não usar este módulo em produção."""
-from django.core.management.utils import get_random_secret_key
-
 from .base import *  # noqa: F403
 from .base import BASE_DIR, env
 
 env.read_env(BASE_DIR / ".env")
-SECRET_KEY = env("DJANGO_SECRET_KEY", default="") or get_random_secret_key()
+SECRET_KEY = env("DJANGO_SECRET_KEY")
+IDENTITY_ENCRYPTION_KEY = env("IDENTITY_ENCRYPTION_KEY")
+IUSTUS_PROXY_SECRET = env("IUSTUS_PROXY_SECRET")
 DEBUG = True
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 DATABASES = {
@@ -13,7 +13,9 @@ DATABASES = {
         default="postgresql://iustus:iustus-local-only@127.0.0.1:5432/iustus"
     )
 }
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR.parent / ".local" / "mail"
+PORTAL_ORIGINS = {"client": "http://localhost:3000", "team": "http://127.0.0.1:3000"}
 # HTTP de desenvolvimento: não usar prefixo __Host- sem HTTPS.
 SESSION_COOKIE_NAME = "iustus_local_session"
 SESSION_COOKIE_SECURE = False

@@ -29,11 +29,13 @@ INSTALLED_APPS = [
     "jobs",
 ]
 MIDDLEWARE = [
+    "apps.identity.middleware.PortalMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "apps.identity.middleware.SessionBoundaryMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -45,6 +47,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "apps.identity.errors.identity_exception_handler",
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
     ],
@@ -63,3 +66,13 @@ SESSION_COOKIE_SAMESITE = "Lax"
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = "DENY"
+CSRF_FAILURE_VIEW = "apps.identity.middleware.csrf_failure"
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = False
+DATA_UPLOAD_MAX_MEMORY_SIZE = 262144
+IDENTITY_RATE_LIMITS_ENABLED = True
+IDENTITY_IDLE_SECONDS = {"client": 7200, "team": 1800}
+IDENTITY_SESSION_SECONDS = {"client": 86400, "team": 43200}
+DEFAULT_FROM_EMAIL = "Iustus <no-reply@localhost>"
+# Sem settings produtivos: políticas locais são explicitamente de teste.
+REGISTRATION_POLICY_VERSION = "development-v1"

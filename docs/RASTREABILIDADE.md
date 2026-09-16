@@ -1,6 +1,6 @@
 # Matriz de rastreabilidade
 
-> Revisão 1.3 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
+> Revisão 1.4 · Base: 16/09/2026 · Arquitetura aprovada; validação operacional pendente.
 
 Esta matriz demonstra cobertura planejada, não validação concluída. Cada requisito funcional tem uma história e pelo menos uma tarefa; requisitos não funcionais e regras têm tarefas associadas. Critérios de verificação constam dos catálogos e de [Testes](TESTES.md).
 
