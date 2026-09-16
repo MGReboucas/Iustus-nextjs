@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Brand from '@/components/Brand';
 import './testimonials.css';
 import './home-nav.css';
+import './pricing.css';
 
 function Mark({ small = false }) {
   return <Brand size={small ? 48 : 96} decorative />;
@@ -46,10 +47,10 @@ export default function Home() {
           <h1>Quando a vida exige uma defesa, <span>você não precisa enfrentar sozinho.</span></h1>
           <p className="hero-text">Com uma única assinatura anual, você envia seus casos quando precisar, anexa a procuração e acompanha tudo até receber sua defesa preparada.</p>
           <div className="hero-actions">
-            <Link className="button primary" href="/checkout">Assine por R$ 547/ano <Arrow /></Link>
+            <Link className="button primary" href="/checkout">Assine em 10x de R$ 54,70 <Arrow /></Link>
             <a className="button ghost" href="#como-funciona">Entenda como funciona <span className="play">▶</span></a>
           </div>
-          <ul className="hero-assurances" aria-label="Destaques da assinatura"><li>Uso ilimitado</li><li>6x ou 12x</li><li>Dashboard seguro</li></ul>
+          <ul className="hero-assurances" aria-label="Destaques da assinatura"><li>Uso ilimitado</li><li>Pagamento em 10x</li><li>Dashboard seguro</li></ul>
           <div className="hero-proof">
             <div className="avatars"><i>AM</i><i>RC</i><i>LF</i><i>+</i></div>
             <p><strong>Atendimento digital e seguro</strong><br />para você resolver sem sair de casa.</p>
@@ -78,7 +79,7 @@ export default function Home() {
       <section id="como-funciona" className="section container how">
         <div className="section-intro"><div className="eyebrow">SIMPLICIDADE EM CADA ETAPA</div><h2>Da preocupação à defesa,<br /><span>em três passos.</span></h2></div>
         <div className="steps">
-          <article><span className="step-number">01</span><div className="step-icon">◈</div><h3>Assine a ÍUSTUS</h3><p>Escolha a assinatura anual por R$ 547 e tenha a plataforma disponível durante toda a vigência.</p></article>
+          <article><span className="step-number">01</span><div className="step-icon">◈</div><h3>Assine a ÍUSTUS</h3><p>Escolha a assinatura anual em 10x de R$ 54,70 e tenha a plataforma disponível durante toda a vigência.</p></article>
           <article><span className="step-number">02</span><div className="step-icon">↥</div><h3>Envie o caso e a procuração</h3><p>Conte o que aconteceu, anexe os documentos necessários e envie sua procuração pelo painel seguro.</p></article>
           <article><span className="step-number">03</span><div className="step-icon">✓</div><h3>Receba sua defesa preparada</h3><p>Acompanhe a solicitação pela plataforma e receba a preparação da sua defesa em um só lugar.</p></article>
         </div>
@@ -88,7 +89,7 @@ export default function Home() {
 
       <section id="plano" className="section pricing container">
         <div className="pricing-intro"><div className="eyebrow">ASSINATURA ANUAL</div><h2>Defesas quando precisar,<br />em um único plano.</h2><p>Assine uma vez ao ano e use a plataforma quantas vezes precisar durante a vigência da sua assinatura.</p></div>
-        <article className="price-card"><div className="price-top"><div><span className="plan-label">PLANO ÍUSTUS ANUAL</span><h3>Defesa jurídica disponível o ano todo.</h3></div><span className="best">USO ILIMITADO</span></div><div className="price"><sup>R$</sup><strong>547</strong><span>/ano</span></div><p className="price-equivalent">Pague à vista ou divida em 6 ou 12 vezes.</p><ul><li><Check /> Uso ilimitado da plataforma durante a assinatura</li><li><Check /> Envio de casos, documentos e procuração online</li><li><Check /> Acompanhamento de cada solicitação pelo painel</li><li><Check /> Recebimento da defesa preparada na plataforma</li></ul><Link className="button primary price-button" href="/checkout">Quero assinar a ÍUSTUS <Arrow /></Link><small className="secure-line">⌁ Pagamento seguro · Opções em 6 ou 12 vezes</small></article>
+        <article className="price-card"><div className="price-top"><div><span className="plan-label">PLANO ÍUSTUS ANUAL</span><h3>Defesa jurídica disponível o ano todo.</h3></div><span className="best">USO ILIMITADO</span></div><div className="price price-installments"><span className="installment-count">10x de</span><sup>R$</sup><strong>54,70</strong></div><p className="price-equivalent">Assinatura anual · Total de R$ 547,00.</p><ul><li><Check /> Uso ilimitado da plataforma durante a assinatura</li><li><Check /> Envio de casos, documentos e procuração online</li><li><Check /> Acompanhamento de cada solicitação pelo painel</li><li><Check /> Recebimento da defesa preparada na plataforma</li></ul><Link className="button primary price-button" href="/checkout">Quero assinar a ÍUSTUS <Arrow /></Link><small className="secure-line">⌁ Pagamento seguro · Em 10x de R$ 54,70</small></article>
       </section>
 
       <section className="testimonials container" aria-labelledby="testimonials-title">
@@ -100,12 +101,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="faq container"><div><div className="eyebrow">DÚVIDAS FREQUENTES</div><h2>Clareza antes<br />de começar.</h2></div><div className="faq-list"><details open><summary>Posso usar a plataforma mais de uma vez?<span>+</span></summary><p>Sim. Sua assinatura dá acesso ilimitado à plataforma durante o período anual de vigência.</p></details><details><summary>Como funciona o pagamento?<span>+</span></summary><p>A assinatura anual custa R$ 547 e pode ser paga à vista ou dividida em 6 ou 12 vezes.</p></details><details><summary>O que preciso enviar para iniciar um caso?<span>+</span></summary><p>Pelo seu painel, você envia o relato do caso, os documentos disponíveis e a procuração.</p></details><details><summary>Como recebo a defesa?<span>+</span></summary><p>Você acompanha a solicitação pelo dashboard e recebe sua defesa preparada diretamente na plataforma.</p></details></div></section>
+      <section className="faq container"><div><div className="eyebrow">DÚVIDAS FREQUENTES</div><h2>Clareza antes<br />de começar.</h2></div><div className="faq-list"><details open><summary>Posso usar a plataforma mais de uma vez?<span>+</span></summary><p>Sim. Sua assinatura dá acesso ilimitado à plataforma durante o período anual de vigência.</p></details><details><summary>Como funciona o pagamento?<span>+</span></summary><p>A assinatura anual pode ser paga em 10x de R$ 54,70, totalizando R$ 547,00.</p></details><details><summary>O que preciso enviar para iniciar um caso?<span>+</span></summary><p>Pelo seu painel, você envia o relato do caso, os documentos disponíveis e a procuração.</p></details><details><summary>Como recebo a defesa?<span>+</span></summary><p>Você acompanha a solicitação pelo dashboard e recebe sua defesa preparada diretamente na plataforma.</p></details></div></section>
 
-      <section className="final-cta"><div className="cta-light"></div><div className="container cta-content"><Mark /><div><div className="eyebrow">SEU PRÓXIMO PASSO COMEÇA AQUI</div><h2>Assine uma vez e use<br /><span>sempre que precisar.</span></h2></div><Link className="button primary" href="/checkout">Assinar por R$ 547/ano <Arrow /></Link></div></section>
+      <section className="final-cta"><div className="cta-light"></div><div className="container cta-content"><Mark /><div><div className="eyebrow">SEU PRÓXIMO PASSO COMEÇA AQUI</div><h2>Assine uma vez e use<br /><span>sempre que precisar.</span></h2></div><Link className="button primary" href="/checkout">Assinar em 10x de R$ 54,70 <Arrow /></Link></div></section>
 
       <footer><div className="container footer-inner"><Logo /><p>© 2026 ÍUSTUS. Defesa jurídica online, com clareza e segurança.</p><div><a href="#privacidade">Privacidade</a><a href="#termos">Termos de uso</a></div></div></footer>
-      <div className="mobile-purchase"><div><small>Plano anual</small><b>R$ 547</b></div><Link href="/checkout">Assinar agora <Arrow /></Link></div>
+      <div className="mobile-purchase"><div><small>Plano anual</small><b>10x de R$ 54,70</b></div><Link href="/checkout">Assinar agora <Arrow /></Link></div>
     </main>
   );
 }

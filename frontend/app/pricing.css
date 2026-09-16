@@ -1,0 +1,38 @@
+.price-installments {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price-installments > .installment-count {
+  margin-left: 0;
+  color: inherit;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.price-installments strong {
+  white-space: nowrap;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .price-installments {
+    gap: 6px;
+  }
+
+  .price-installments > .installment-count {
+    font-size: 16px;
+  }
+
+  .price-installments strong {
+    font-size: clamp(42px, 12vw, 57px);
+  }
+
+  .mobile-purchase b {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+  }
+}
