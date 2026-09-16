@@ -83,7 +83,7 @@ export default function Access() {
     <Link href="/" className="auth-back">← Voltar para o site</Link>
     <section className="auth-card" aria-labelledby="access-title">
       <h1 id="access-title" className="auth-brand-title"><Brand size={136} /></h1>
-      <p className="auth-subtitle">{!context ? "ACESSO" : team ? "PORTAL PROFISSIONAL" : "ÁREA DO CLIENTE"}</p>
+      <p className="auth-subtitle">{team ? "PORTAL PROFISSIONAL" : "ACESSO CLIENTE"}</p>
       <p className="auth-notice">Ambiente de testes. Use apenas dados fictícios.</p>
       {codes.length > 0 ? <div className="recovery-codes">
         <h2>Guarde seus códigos de recuperação</h2>
